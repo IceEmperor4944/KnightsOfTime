@@ -48,9 +48,9 @@ Make sure you have the following installed:
 
 ## 📸 Screenshots
 
-- ![Title Card](./KOTGame/resources/titleAndKnightHelmSword.png)
+- ![Title Card](./KOTGame/resources/titleAndKnightHelmSword.jpg)
 - ![Generic Character](./KOTGame/resources/default.png)
-- ![Stage Idea](./KOTGame/resources/castleStage.png)
+- ![Stage Idea](./KOTGame/resources/castleStage.jpg)
 
 ---
 
