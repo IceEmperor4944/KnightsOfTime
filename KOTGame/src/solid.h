@@ -1,0 +1,13 @@
+#pragma once
+#include "object.h"
+
+class Solid : public Object {
+public:
+	Solid() : Object() {};
+	Solid(std::string tag, float mass, Vector2 pos = { 0,0 }) : Object(tag, mass, pos) {};
+
+	virtual void Initialize(std::string filename) override { Object::Initialize(filename); }
+	virtual void Step(float dt) override;
+public:
+
+};
