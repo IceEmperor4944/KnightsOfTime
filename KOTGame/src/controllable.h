@@ -13,6 +13,8 @@ public:
 
 	void Initialize(std::string filename) override { Object::Initialize(filename); }
 	void Step(float dt) override;
+
+	std::vector<std::shared_ptr<Collider>> CheckColliders(const std::vector<std::shared_ptr<Object>>& other) override;
 public:
 	float gravScale = 1.0f;
 	bool grounded = true;

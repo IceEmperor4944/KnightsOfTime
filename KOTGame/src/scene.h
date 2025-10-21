@@ -1,7 +1,7 @@
 #pragma once
 #include "object.h"
 
-using objects_t = std::vector<Object*>;
+using objects_t = std::vector<std::shared_ptr<Object>>;
 
 class Scene {
 public:
@@ -22,17 +22,16 @@ public:
 	static constexpr float fixedTimestep = 1.0f / 60.0f;
 
 	//OBJECT
-	Object* CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
+	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
 		std::string filename, float gravScale = 0.0f, float jumpHeight = 0.0f, float moveSpeed = 0.0f);
-	objects_t& GetObjects() { return objects; }
 
 	friend class Object;
 
 	//DRAW
 	void DrawRectangles(const Vector2& world, const Vector2& size, const Color& color) const;
-	void DrawTextures(const Texture2D& texture, const Vector2& world, const Color& tint) const;
+	void DrawTextures(const Texture2D& texture, const float posX, const float posY, const Color& tint) const;
 
-	void SetBackgroundTexture(std::string filename = "resources/defaultBackground.png") { background = LoadTexture(filename.c_str()); }
+	void SetBackgroundTexture(std::string filename = "defaultBackground.png") { background = LoadTexture(filename.c_str()); }
 	AABB GetAABB() { return AABB{ Vector2{width * 0.5f, height * 0.5f}, Vector2{width * 0.5f, height * 0.5f} }; }
 public:
 	int width = 0;

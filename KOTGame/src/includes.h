@@ -7,3 +7,5 @@
 #include "hitbox.h"
 
 #include "gamescene.h"
+
+#include "checks.h"

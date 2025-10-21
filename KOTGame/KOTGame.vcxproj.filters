@@ -71,5 +71,8 @@
     <ClInclude Include="src\includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\checks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

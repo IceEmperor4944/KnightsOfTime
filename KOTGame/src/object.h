@@ -1,5 +1,5 @@
 #pragma once
-#include "collider.h"
+#include "hurtbox.h"
 #include <string>
 
 #define SOLID Object::Type::Solid
@@ -9,11 +9,16 @@ class Object {
 public:
 	enum class Type {
 		Solid = 0,
-		Controllable = 1
+		Controllable
 	};
 public:
 	Object() {};
-	Object(std::string tag, float mass, Vector2 pos = { 0,0 }) : mass{ mass }, position{ pos } {};
+	Object(std::string tag, float mass, Vector2 pos = { 0,0 }, float restitution = 1.0f) :
+		tag{tag},
+		mass{ mass },
+		position{ pos },
+		restitution{ restitution }
+	{};
 
 	virtual void Initialize(std::string filename) {
 		sprite = LoadTexture(filename.c_str());
@@ -22,9 +27,10 @@ public:
 
 	virtual void Step(float dt) = 0;
 
-	AABB GetAABB() const { return AABB{ position, { size.x * 2, size.y * 2 } }; }
+	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
-	Collider* AddCollider(Collider* collider) { colliders.push_back(collider); }
+	void AddCollider(std::shared_ptr<Collider> collider) { colliders.push_back(collider); }
+	virtual std::vector<std::shared_ptr<Collider>> CheckColliders(const std::vector<std::shared_ptr<Object>>& other) = 0;
 public:
 	std::string tag = "";
 
@@ -33,10 +39,11 @@ public:
 
 	Vector2 position{ 0, 0 };
 	Vector2 velocity{ 0, 0 };
+
+	float restitution = 1.0f;
 	
 	Texture2D sprite{};
 
 	//array of colliders for hurt/hitbox
-	std::vector<Collider*> colliders;
-
+	std::vector<std::shared_ptr<Collider>> colliders;
 };

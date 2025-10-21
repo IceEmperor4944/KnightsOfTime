@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\aabb.h" />
+    <ClInclude Include="src\checks.h" />
     <ClInclude Include="src\collider.h" />
     <ClInclude Include="src\controllable.h" />
     <ClInclude Include="src\controls.h" />

@@ -9,8 +9,7 @@ struct AABB {
 	AABB(const Vector2& center, const Vector2& size) :
 		center{ center },
 		size{ size }
-	{
-	}
+	{}
 
 	Vector2 extents() const { return size * 0.5f; }
 	Vector2 min() const { return center - extents(); }
