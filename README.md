@@ -1,39 +1,60 @@
-# GAT315-Physics
+# ⚔️ Knights of Time
 
-# Simple Physics Engine
+**Knights of Time** is a 2D hand-drawn fighting game built entirely in **C++**, featuring **fluid animation**, **responsive combat**, and **online multiplayer** support.  
+Rendered with **[Raylib](https://www.raylib.com/)** and powered by **[ENet](https://github.com/zpl-c/enet)** for low-latency networking, it brings classic fighting gameplay into a modern, stylized world.
 
-A lightweight 2D physics engine written in C++ using the [raylib](https://www.raylib.com/) library. This engine supports basic rigid body dynamics, configurable world physics settings, and spring joints. Includes a sample game inspired by **Angry Birds**, where you can launch a ball with a slingshot to knock down a block structure.
+---
 
-## Features
+## 🕹️ Features
 
-- 🧱 **Rigid Body Creation** – Easily create 2D physics bodies with mass, velocity, restitution, and shape.
-- 🌍 **World Configuration** – Modify gravity, time step, and other global physics values at runtime.
-- 🌀 **Spring Joints** – Attach bodies together with customizable spring stiffness and damping.
-- 🏹 **Slingshot Demo** – A playable example game where you launch a ball to destroy a stack of blocks.
+- 🎨 **Fully Hand-Drawn Art Style** – Every character, background, and animation is created by hand for a unique, expressive visual experience.  
+- ⚔️ **Fast & Fluid Combat** – Smooth controls and detailed frame animations make every hit feel impactful.  
+- 🌐 **Online Multiplayer** – Powered by **ENet**, offering reliable UDP-based networking for low-lag matches.  
+- 🧠 **Deterministic Simulation** – Ensures consistent gameplay across clients, making multiplayer fair and accurate.  
+- 🎵 **Original Soundtrack & Effects** – Immersive audio that enhances the medieval atmosphere.  
+- 🧩 **Modular Architecture** – Built with scalability in mind; add new characters, arenas, or move sets easily.
 
-## Getting Started
+---
+
+## 🧰 Built With
+
+| Component | Purpose |
+|------------|----------|
+| [Raylib](https://www.raylib.com/) | Rendering, input, audio, and window management |
+| [ENet](https://github.com/zpl-c/enet) | Networking and multiplayer communication |
+| C++20 | Core game logic and systems |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- C++17 or later
-- [raylib](https://github.com/raysan5/raylib) installed and linked
-- A C++ compiler (GCC, Clang, MSVC)
+Make sure you have the following installed:
 
-### Building the Project
+- **C++20 compiler** (GCC, Clang, or MSVC)
+- **Raylib** (compiled or installed via package manager)
+- **ENet** library
 
-```bash
-git clone https://github.com/IceEmperor4944/GAT315-Physics #to location of choice
-#open in Visual Studio or another C++ editor
-#Choose the scene to run in main.cpp by changing the scene variable type
-#Run the program
-```
+---
 
-Controls (Demo)
+## 🧠 Development Notes
 
-Left Mouse Button – Click to create a ball
-Left Mouse + Left Control - Click & drag to create blocks to knock down
-Right Mouse Button - Hold to drag the sling back, release to launch the ball
-Space Bar - Pause the scene
+- Physics & Rendering: Handled through Raylib’s simple yet powerful API, optimized for 2D performance.
+- Networking: ENet ensures reliable UDP packet delivery, ideal for real-time multiplayer fighting games.
+- Game Loop: Custom engine loop designed around deterministic physics updates and decoupled rendering.
 
-Credits
-Developed using raylib
+---
+
+## 📸 Screenshots
+
+- ![Title Card](./KOTGame/resources/titleAndKnightHelmSword.jpg)
+- ![Generic Character](./KOTGame/resources/default.png)
+- ![Stage Idea](./KOTGame/resources/castleStage.jpg)
+
+---
+
+## 🏰 About
+
+Knights of Time is a passion project built from the ground up to blend classic 2D fighting gameplay with a modern networking architecture and handcrafted visuals.
+Step into the arena and fight for your era!
