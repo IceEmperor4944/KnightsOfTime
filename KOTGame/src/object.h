@@ -26,6 +26,7 @@ public:
 	}
 
 	virtual void Step(float dt) = 0;
+	virtual void FixedStep(float timestep) = 0;
 
 	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
@@ -43,6 +44,7 @@ public:
 	float restitution = 1.0f;
 	
 	Texture2D sprite{};
+	bool drawCols = true;
 
 	//array of colliders for hurt/hitbox
 	std::vector<std::shared_ptr<Collider>> colliders;

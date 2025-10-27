@@ -4,7 +4,7 @@
 
 Scene::Scene(const std::string& title, int width, int height) :	width{ width }, height{ height } {
 	InitWindow(width, height, title.c_str());
-	SetTargetFPS(120);
+	SetTargetFPS(60);
 
 	SetBackgroundTexture();
 }
@@ -27,9 +27,19 @@ void Scene::EndDraw() {
 std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, float gravScale, float jumpHeight, float moveSpeed) {
 	std::shared_ptr<Object> obj;
 
-	if (type == Object::Type::Solid) obj = std::make_shared<Solid>(tag, mass, position);
-	else obj = std::make_shared<Controllable>(tag, mass, gravScale, jumpHeight, moveSpeed, position);
+	if (type == Object::Type::Controllable) obj = std::make_shared<Controllable>(tag, mass, gravScale, jumpHeight, moveSpeed, position);
 
+	obj->Initialize(filename);
+	objects.push_back(obj);
+
+	return obj;
+}
+
+std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, float health) {
+	std::shared_ptr<Object> obj;
+
+	if (type == Object::Type::Solid) obj = std::make_shared<Solid>(tag, mass, health, position);
+	
 	obj->Initialize(filename);
 	objects.push_back(obj);
 

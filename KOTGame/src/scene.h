@@ -23,7 +23,9 @@ public:
 
 	//OBJECT
 	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
-		std::string filename, float gravScale = 0.0f, float jumpHeight = 0.0f, float moveSpeed = 0.0f);
+		std::string filename, float gravScale, float jumpHeight, float moveSpeed);
+	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
+		std::string filename, float health);
 
 	friend class Object;
 
@@ -37,7 +39,7 @@ public:
 	int width = 0;
 	int height = 0;
 
-	bool showFPS = false;
+	bool showFPS = true;
 
 	Texture2D background;
 

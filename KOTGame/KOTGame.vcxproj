@@ -151,10 +151,12 @@
     <ClInclude Include="src\controllable.h" />
     <ClInclude Include="src\controls.h" />
     <ClInclude Include="src\gamescene.h" />
+    <ClInclude Include="src\attack.h" />
     <ClInclude Include="src\hitbox.h" />
     <ClInclude Include="src\hurtbox.h" />
     <ClInclude Include="src\includes.h" />
     <ClInclude Include="src\object.h" />
+    <ClInclude Include="src\punch.h" />
     <ClInclude Include="src\scene.h" />
     <ClInclude Include="src\solid.h" />
   </ItemGroup>

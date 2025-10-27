@@ -74,5 +74,11 @@
     <ClInclude Include="src\checks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\attack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\punch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
