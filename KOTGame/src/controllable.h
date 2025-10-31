@@ -24,10 +24,10 @@ public:
 	void Step(float dt) override;
 	void FixedStep(float timestep) override;
 
-	std::vector<std::shared_ptr<Collider>> CheckColliders(const std::vector<std::shared_ptr<Object>>& other) override;
+	colliders_t CheckColliders(const std::vector<std::shared_ptr<Object>>& other) override;
 public:
 	float gravScale = 1.0f;
-	bool grounded = true;
+	bool grounded = false;
 	float jumpHeight = 1.0f;
 	float moveSpeed = 1.0f;
 

@@ -2,15 +2,20 @@
 #include "solid.h"
 #include "controllable.h"
 
-Scene::Scene(const std::string& title, int width, int height) :	width{ width }, height{ height } {
+Scene::Scene(const std::string& title, int width, int height, int animFrameSpeed) : width{ width }, height{ height }, animFrameSpeed{ animFrameSpeed } {
 	InitWindow(width, height, title.c_str());
-	SetTargetFPS(60);
+	SetTargetFPS(animFrameSpeed);
 
 	SetBackgroundTexture();
 }
 
 Scene::~Scene() {
 	CloseWindow();
+	for (auto& obj : objects) {
+		obj->colliders.clear();
+		delete &obj;
+	}
+	objects.clear();
 }
 
 void Scene::BeginDraw() {
@@ -30,6 +35,7 @@ std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, 
 	if (type == Object::Type::Controllable) obj = std::make_shared<Controllable>(tag, mass, gravScale, jumpHeight, moveSpeed, position);
 
 	obj->Initialize(filename);
+	obj->frameSpeed = animFrameSpeed;
 	objects.push_back(obj);
 
 	return obj;
@@ -41,6 +47,7 @@ std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, 
 	if (type == Object::Type::Solid) obj = std::make_shared<Solid>(tag, mass, health, position);
 	
 	obj->Initialize(filename);
+	obj->frameSpeed = animFrameSpeed;
 	objects.push_back(obj);
 
 	return obj;

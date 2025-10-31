@@ -32,14 +32,15 @@ bool Hurtbox::Intersects(std::shared_ptr<Object> other) {
 
 	bool output1 = (colA.min().x <= colB.max().x); //obj A left side overlaps obj B right side
 	bool output2 = (colA.max().x >= colB.min().x); //obj A right side overlaps obj B left side
-	bool output3 = (colA.min().y <= colB.max().y); //obj A bottom overlaps obj B top
-	bool output4 = (colA.max().y >= colB.min().y); //obj A top overlaps obj B bottom
+	bool output3 = (colA.min().y <= colB.max().y); //obj A top overlaps obj B bottom
+	bool output4 = (colA.max().y >= colB.min().y); //obj A bottom overlaps obj B top
 
-	if (output1 && output2 && output3 && output4) {
-		std::cout << "##KOT: Object at Position " << position.x << ", " << position.y << " of Size " << size.x
-			<< ", " << size.y << " Intersects Object at Position " << other->position.x << ", " << other->position.y
-			<< " of Size " << other->size.x << ", " << other->size.y << std::endl;
-	}
+	//Check for collision bounds
+	/*std::cout << "##KOT: Col A over Range (" << colA.min().x << ", " << colA.min().y 
+		<< ") - (" << colA.max().x << ", " << colA.max().y << ")" << std::endl;
+	std::cout << "##KOT: Col B of Object '" << other->tag <<  "' over Range (" 
+		<< colB.min().x << ", " << colB.min().y << ") - (" << colB.max().x << ", " << colB.max().y << ")" << std::endl;
+	std::cout << "------------------------------------------------------------" << std::endl;*/
 
 	return output1 && output2 && output3 && output4;
 }

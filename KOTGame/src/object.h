@@ -1,5 +1,6 @@
 #pragma once
 #include "hurtbox.h"
+#include "hitbox.h"
 #include <string>
 
 #define SOLID Object::Type::Solid
@@ -31,7 +32,7 @@ public:
 	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
 	void AddCollider(std::shared_ptr<Collider> collider) { colliders.push_back(collider); }
-	virtual std::vector<std::shared_ptr<Collider>> CheckColliders(const std::vector<std::shared_ptr<Object>>& other) = 0;
+	virtual colliders_t CheckColliders(const std::vector<std::shared_ptr<Object>>& other) = 0;
 public:
 	std::string tag = "";
 
@@ -44,6 +45,10 @@ public:
 	float restitution = 1.0f;
 	
 	Texture2D sprite{};
+	float frameTimer = 0.0f;
+	int currentFrame = 0;
+	int frameSpeed = 0;
+
 	bool drawCols = true;
 
 	//array of colliders for hurt/hitbox

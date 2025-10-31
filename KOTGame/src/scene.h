@@ -5,7 +5,7 @@ using objects_t = std::vector<std::shared_ptr<Object>>;
 
 class Scene {
 public:
-	Scene(const std::string& title, int width, int height);
+	Scene(const std::string& title, int width, int height, int animFrameSpeed);
 	virtual ~Scene();
 
 	virtual void Initialize() = 0;
@@ -40,6 +40,7 @@ public:
 	int height = 0;
 
 	bool showFPS = true;
+	int animFrameSpeed = 0;
 
 	Texture2D background;
 

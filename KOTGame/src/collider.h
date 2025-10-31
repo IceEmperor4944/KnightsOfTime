@@ -8,7 +8,7 @@ public:
 	Collider(Vector2 size, Vector2 position = { 0, 0 }, float restitution = 0.0f) : size{ size }, position{ position }, restitution{ restitution } {}
 
 	virtual void Initialize() = 0;
-	AABB GetAABB() const { return AABB{ position, { size.x * 2, size.y * 2 } }; }
+	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
 	virtual bool Intersects(std::shared_ptr<class Object> other) = 0;
 public:
@@ -17,3 +17,5 @@ public:
 
 	float restitution = 1.0f;
 };
+
+using colliders_t = std::vector<std::shared_ptr<Collider>>;

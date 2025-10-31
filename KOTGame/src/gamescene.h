@@ -3,7 +3,7 @@
 
 class GameScene : public Scene {
 public:
-	GameScene(const std::string& title, int width, int height) : Scene(title, width, height) {}
+	GameScene(const std::string& title, int width, int height, int animFrameSpeed) : Scene(title, width, height, animFrameSpeed) {}
 	~GameScene() { Scene::~Scene(); }
 
 	void Initialize() override;
