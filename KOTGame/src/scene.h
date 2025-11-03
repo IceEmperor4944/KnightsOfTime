@@ -19,13 +19,13 @@ public:
 
 	bool IsQuit() { return WindowShouldClose(); }
 
-	static constexpr float fixedTimestep = 1.0f / 60.0f;
+	static constexpr float fixedTimestep = 1.0f / 24.0f;
 
 	//OBJECT
 	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
-		std::string filename, float gravScale, float jumpHeight, float moveSpeed);
+		std::string filename, int health, float gravScale, float jumpHeight, float moveSpeed);
 	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
-		std::string filename, float health);
+		std::string filename, int health);
 
 	friend class Object;
 

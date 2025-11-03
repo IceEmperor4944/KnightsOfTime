@@ -21,7 +21,7 @@ public:
 	void Initialize() override;
 	std::string GetType();
 
-	bool Intersects(std::shared_ptr<Object> other) override;
+	bool Intersects(std::shared_ptr<Collider> other) override;
 public:
 	BOXTYPE type;
 };

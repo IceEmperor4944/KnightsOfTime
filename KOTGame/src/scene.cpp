@@ -13,7 +13,6 @@ Scene::~Scene() {
 	CloseWindow();
 	for (auto& obj : objects) {
 		obj->colliders.clear();
-		delete &obj;
 	}
 	objects.clear();
 }
@@ -29,10 +28,10 @@ void Scene::EndDraw() {
 	EndDrawing();
 }
 
-std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, float gravScale, float jumpHeight, float moveSpeed) {
+std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, int health, float gravScale, float jumpHeight, float moveSpeed) {
 	std::shared_ptr<Object> obj;
 
-	if (type == Object::Type::Controllable) obj = std::make_shared<Controllable>(tag, mass, gravScale, jumpHeight, moveSpeed, position);
+	if (type == Object::Type::Controllable) obj = std::make_shared<Controllable>(tag, mass, health, gravScale, jumpHeight, moveSpeed, position);
 
 	obj->Initialize(filename);
 	obj->frameSpeed = animFrameSpeed;
@@ -41,7 +40,7 @@ std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, 
 	return obj;
 }
 
-std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, float health) {
+std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, int health) {
 	std::shared_ptr<Object> obj;
 
 	if (type == Object::Type::Solid) obj = std::make_shared<Solid>(tag, mass, health, position);

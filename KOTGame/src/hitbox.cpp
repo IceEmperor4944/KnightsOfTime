@@ -5,7 +5,7 @@ void Hitbox::Initialize() {
 	//
 }
 
-bool Hitbox::Intersects(std::shared_ptr<class Object> other)
+bool Hitbox::Intersects(std::shared_ptr<Collider> other)
 {
 	return false;
 }

@@ -1,5 +1,6 @@
 #include "gamescene.h"
 #include "controllable.h"
+#include "checks.h"
 #include <iostream>
 
 void GameScene::Initialize() {
@@ -11,6 +12,8 @@ void GameScene::Update(float timestep) {
 		if (obj->tag != "Ground") {
 			obj->CheckColliders(objects);
 			obj->Step(timestep);
+
+			CheckObjectColliders(obj.get());
 
 			//bump obj to screen, border (10 sides, 50 bottom)
 			if (obj->position.x < 10)		obj->position.x = 10;
@@ -85,5 +88,9 @@ void GameScene::Draw() {
 }
 
 void GameScene::DrawGUI() {
-	//
+	for (auto& obj : objects) {
+		auto text = "Health: " + std::to_string(obj->health) + "|" + std::to_string(obj->maxHealth);
+		if (obj->tag == "Player1") DrawText(text.c_str(), 50, 50, 50, WHITE);
+		if (obj->tag == "Player2") DrawText(text.c_str(), width - 450, 50, 50, WHITE);
+	}
 }

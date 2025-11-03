@@ -3,7 +3,7 @@
 
 class Hitbox : public Collider {
 public:
-	Hitbox(Vector2 size, Vector2 position, float damage, float knockback) :
+	Hitbox(Vector2 size, Vector2 position, int damage, float knockback) :
 		Collider{ size, position },
 		damage{ damage },
 		knockback{ knockback }
@@ -11,8 +11,8 @@ public:
 
 	void Initialize() override;
 
-	bool Intersects(std::shared_ptr<class Object> other) override;
+	bool Intersects(std::shared_ptr<Collider> other) override;
 public:
-	float damage = 0.0f;
+	int damage = 0;
 	float knockback = 0.0f;
 };

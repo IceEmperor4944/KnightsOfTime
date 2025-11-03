@@ -10,7 +10,7 @@ public:
 	virtual void Initialize() = 0;
 	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
-	virtual bool Intersects(std::shared_ptr<class Object> other) = 0;
+	virtual bool Intersects(std::shared_ptr<Collider> other) = 0;
 public:
 	Vector2 position{};
 	Vector2 size{};

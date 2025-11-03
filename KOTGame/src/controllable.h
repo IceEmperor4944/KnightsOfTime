@@ -13,8 +13,8 @@ public:
 	};
 public:
 	Controllable() : Object() {};
-	Controllable(std::string tag, float mass, float gravScale, float jumpHeight, float moveSpeed, Vector2 pos = { 0,0 }) :
-		Object(tag, mass, pos),
+	Controllable(std::string tag, float mass, int maxHealth, float gravScale, float jumpHeight, float moveSpeed, Vector2 pos = { 0,0 }) :
+		Object(tag, mass, maxHealth, pos),
 		gravScale{ gravScale },
 		jumpHeight{ jumpHeight },
 		moveSpeed{ moveSpeed }

@@ -26,7 +26,7 @@ std::string Hurtbox::GetType() {
 	}
 }
 
-bool Hurtbox::Intersects(std::shared_ptr<Object> other) {
+bool Hurtbox::Intersects(std::shared_ptr<Collider> other) {
 	AABB colA = GetAABB();
 	AABB colB = other->GetAABB(); //AABB{ {0, 0}, {0, 0} };
 

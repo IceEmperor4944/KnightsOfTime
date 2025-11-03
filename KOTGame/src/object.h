@@ -14,9 +14,10 @@ public:
 	};
 public:
 	Object() {};
-	Object(std::string tag, float mass, Vector2 pos = { 0,0 }, float restitution = 1.0f) :
-		tag{tag},
+	Object(std::string tag, float mass, int maxHealth, Vector2 pos = { 0,0 }, float restitution = 1.0f) :
+		tag{ tag },
 		mass{ mass },
+		maxHealth{ maxHealth },
 		position{ pos },
 		restitution{ restitution }
 	{};
@@ -24,6 +25,7 @@ public:
 	virtual void Initialize(std::string filename) {
 		sprite = LoadTexture(filename.c_str());
 		size = { (float)sprite.width, (float)sprite.height };
+		health = maxHealth;
 	}
 
 	virtual void Step(float dt) = 0;
@@ -41,13 +43,16 @@ public:
 
 	Vector2 position{ 0, 0 };
 	Vector2 velocity{ 0, 0 };
-
 	float restitution = 1.0f;
 	
+	int maxHealth = 0;
+	int health = 0;
+
 	Texture2D sprite{};
 	float frameTimer = 0.0f;
 	int currentFrame = 0;
 	int frameSpeed = 0;
+	bool animPlay = false;
 
 	bool drawCols = true;
 
