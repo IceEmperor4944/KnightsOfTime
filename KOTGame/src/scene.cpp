@@ -4,17 +4,23 @@
 
 Scene::Scene(const std::string& title, int width, int height, int animFrameSpeed) : width{ width }, height{ height }, animFrameSpeed{ animFrameSpeed } {
 	InitWindow(width, height, title.c_str());
-	SetTargetFPS(animFrameSpeed);
+	SetTargetFPS(60);
+
+	InitAudioDevice();
 
 	SetBackgroundTexture();
 }
 
 Scene::~Scene() {
-	CloseWindow();
 	for (auto& obj : objects) {
 		obj->colliders.clear();
 	}
 	objects.clear();
+
+	UnloadMusicStream(musicBG);
+	CloseAudioDevice();
+	
+	CloseWindow();
 }
 
 void Scene::BeginDraw() {

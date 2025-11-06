@@ -53,6 +53,7 @@ public:
 	int currentFrame = 0;
 	int frameSpeed = 0;
 	bool animPlay = false;
+	Sound soundPlay;
 
 	bool drawCols = true;
 

@@ -4,7 +4,8 @@
 #include <iostream>
 
 void GameScene::Initialize() {
-	//
+	musicBG = LoadMusicStream("audio/moonsetter.mp3");
+	musicBG.looping = true;
 }
 
 void GameScene::Update(float timestep) {
@@ -13,7 +14,7 @@ void GameScene::Update(float timestep) {
 			obj->CheckColliders(objects);
 			obj->Step(timestep);
 
-			CheckObjectColliders(obj.get());
+			//CheckObjectColliders(obj.get());
 
 			//bump obj to screen, border (10 sides, 50 bottom)
 			if (obj->position.x < 10)		obj->position.x = 10;
@@ -30,6 +31,8 @@ void GameScene::Update(float timestep) {
 			}*/
 		}
 	}
+
+	UpdateMusicStream(musicBG);
 }
 
 void GameScene::FixedUpdate() {

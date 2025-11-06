@@ -5,28 +5,33 @@
 #include <iostream>
 
 static void LPunch(Controllable& obj, float timestep) {
-	colliders_t lPunchCols;
-	std::shared_ptr<Collider> farOutCol = std::make_shared<Hitbox>(Vector2{ 100.0f, 50.0f }, Vector2{ obj.position.x + 75.0f, obj.position.y + 20.0f }, 10, 0.0f);
-	lPunchCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
-	lPunchCols.push_back(farOutCol);
+	colliders_t stageOneCols;
+	std::shared_ptr<Collider> innerCol = std::make_shared<Hitbox>(Vector2{ 50.0f, 50.0f }, Vector2{ obj.position.x + 30.0f, obj.position.y + 20.0f }, 10, 0.0f);
+	stageOneCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
+	stageOneCols.push_back(innerCol);
+	colliders_t stageTwoCols;
+	std::shared_ptr<Collider> outerCol = std::make_shared<Hitbox>(Vector2{ 100.0f, 50.0f }, Vector2{ obj.position.x + 75.0f, obj.position.y + 20.0f }, 10, 0.0f);
+	stageTwoCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
+	stageTwoCols.push_back(outerCol);
 	std::vector<colliders_t> finalCols;
-	for (int i = 0; i < 4; i++) finalCols.push_back(lPunchCols);
+	for (int i = 0; i < 6; i++) finalCols.push_back(stageOneCols);
+	for (int i = 0; i < 6; i++) finalCols.push_back(stageTwoCols);
 	auto lPunch = std::make_shared<Attack>(finalCols, "sprites/defaultPunch.png");
 
 	obj.frameTimer += timestep;
-	std::cout << "----------------------------------" << std::endl;
+	/*std::cout << "----------------------------------" << std::endl;
 	std::cout << "##KOT: Attacking" << std::endl;
-	std::cout << "##KOT: Frame Timer: " << obj.frameTimer << std::endl;
+	std::cout << "##KOT: Frame Timer: " << obj.frameTimer << std::endl;*/
 	if (obj.frameTimer >= (1.0f / obj.frameSpeed)) {
-		std::cout << "##KOT: Next Frame" << std::endl;
-		std::cout << "----------------------------------" << std::endl;
+		/*std::cout << "##KOT: Next Frame" << std::endl;
+		std::cout << "----------------------------------" << std::endl;*/
 		obj.frameTimer = 0.0f;
 		obj.currentFrame++;
 		for (auto& col : lPunch->PlayAttackFrame(obj)) obj.colliders.push_back(col);
 		if (obj.currentFrame >= (int)lPunch->colliders.size()) {
-			std::cout << "----------------------------------" << std::endl;
+			/*std::cout << "----------------------------------" << std::endl;
 			std::cout << "##KOT: Attack Over" << std::endl;
-			std::cout << "----------------------------------" << std::endl;
+			std::cout << "----------------------------------" << std::endl;*/
 			obj.state = CSTATE::Idle;
 			obj.currentFrame = 0;
 			obj.animPlay = false;

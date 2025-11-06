@@ -8,7 +8,10 @@ public:
 	enum class State {
 		Idle = 0,
 		Move,
+		Run,
+		Crouch,
 		Air,
+		Hit,
 		Punch
 	};
 public:
@@ -32,6 +35,8 @@ public:
 	float moveSpeed = 1.0f;
 
 	State state{ CSTATE::Idle };
+
+	bool isHit = false;
 
 	////////////////////////////////////////////////////////
 	//for future use:

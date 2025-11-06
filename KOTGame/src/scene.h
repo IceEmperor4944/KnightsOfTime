@@ -43,6 +43,7 @@ public:
 	int animFrameSpeed = 0;
 
 	Texture2D background;
+	Music musicBG;
 
 	objects_t objects;
 };

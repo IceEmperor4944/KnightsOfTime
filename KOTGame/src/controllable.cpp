@@ -28,7 +28,7 @@ void Controllable::Step(float dt) {
 
 			//jump
 			if (grounded && IsKeyPressed(KEY_SPACE)) {
-				std::cout << "##KOT: Jump Pressed" << std::endl;
+				//std::cout << "##KOT: Jump Pressed" << std::endl;
 				/*velocity.y = 0.0f;
 				position.y -= 100;*/
 				position.y += -2 * jumpHeight;
@@ -39,10 +39,11 @@ void Controllable::Step(float dt) {
 			}
 
 			//punch
-			if (IsKeyPressed(KEY_F)) {
+			if (grounded && IsKeyPressed(KEY_F)) {
 				state = CSTATE::Punch;
 				currentFrame = 0;
-				PlaySound(LoadSound("audio/heeyah.mp3"));
+				soundPlay = LoadSound("audio/heeyah.wav");
+				PlaySound(soundPlay);
 			}
 		}
 		else if (tag == "Player2") {
@@ -106,11 +107,11 @@ void Controllable::Step(float dt) {
 
 
 void Controllable::FixedStep(float timestep) {
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "##KOT: Object " << tag << " at Position (" << position.x << ", " << position.y << ")" << std::endl;
+	/*std::cout << "----------------------------------------------" << std::endl;
+	std::cout << "##KOT: Object " << tag << " at Position (" << position.x << ", " << position.y << ")" << std::endl;*/
 	switch (state) {
 	case Controllable::State::Idle:
-		std::cout << "##KOT: Object " << tag << " in State: Idle" << std::endl;
+		//std::cout << "##KOT: Object " << tag << " in State: Idle" << std::endl;
 		//if (!animPlay) {
 		colliders.clear();
 		//currentFrame = 0;
@@ -121,20 +122,20 @@ void Controllable::FixedStep(float timestep) {
 		break;
 	case Controllable::State::Move:
 		//play move anim
-		std::cout << "##KOT: Object " << tag << " in State: Move" << std::endl;
+		//std::cout << "##KOT: Object " << tag << " in State: Move" << std::endl;
 		//velocity.x < -0.1f ? anim.hFlip = true : false
 		colliders.clear();
 		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
 		break;
 	case Controllable::State::Air:
 		//play jump anim
-		std::cout << "##KOT: Object " << tag << " in State: Air" << std::endl;
+		//std::cout << "##KOT: Object " << tag << " in State: Air" << std::endl;
 		grounded = false;
 		colliders.clear();
 		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
 		break;
 	case Controllable::State::Punch: {
-		std::cout << "##KOT: Object " << tag << " in State: Punch" << std::endl;
+		//std::cout << "##KOT: Object " << tag << " in State: Punch" << std::endl;
 		//if (!animPlay) {
 		colliders.clear();
 		//currentFrame = 0;
@@ -146,7 +147,7 @@ void Controllable::FixedStep(float timestep) {
 	default:
 		break;
 	}
-	std::cout << "----------------------------------------------" << std::endl;
+	//std::cout << "----------------------------------------------" << std::endl;
 }
 
 colliders_t Controllable::CheckColliders(const std::vector<std::shared_ptr<Object>>& other) {
@@ -182,14 +183,16 @@ colliders_t Controllable::CheckColliders(const std::vector<std::shared_ptr<Objec
 									velocity.x = 0.0f;
 									auto leftRight = fabsf(GetAABB().min().x - obj->GetAABB().max().x);
 									auto rightLeft = fabsf(GetAABB().max().x - obj->GetAABB().min().x);
-									obj->position.x = (leftRight < rightLeft) ? obj->GetAABB().min().x : obj->GetAABB().max().x;
+
+									//needs more tweaking in future - shifts character based on fraction of size
+									obj->position.x = (leftRight < rightLeft) ? obj->position.x - (obj->size.x*0.05f): obj->position.x + (obj->size.x * 0.05f);
 								}
 							}
 						}
 						else if (hurtCol->type == BOXTYPE::Hurt) {
 							for (auto& oCol : obj->colliders) {
 								auto oHitCol = std::dynamic_pointer_cast<Hitbox>(oCol);
-								if (oHitCol) health -= oHitCol->damage;
+								if (oHitCol && !isHit) health -= oHitCol->damage;
 							}
 						}
 					}

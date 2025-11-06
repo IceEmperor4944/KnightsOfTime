@@ -20,7 +20,7 @@ int main() {
 	//CheckTexture(filename);
 
 	filename = "sprites/default2.png";
-	scene->CreateObject(CONTROL, "Player2", { 1280.0f, 560.0f }, 1.0f, filename, 100, 1.0f, 12.0f, 500.0f);//Create Player 2
+	scene->CreateObject(CONTROL, "Player2", { 1280.0f, 560.0f }, 1.0f, filename, 100, 1.0f, 12.0f, 750.0f);//Create Player 2
 	//CheckTexture(filename);
 
 	//Check for Objects in Scene
