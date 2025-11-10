@@ -6,7 +6,7 @@ Scene::Scene(const std::string& title, int width, int height, int animFrameSpeed
 	InitWindow(width, height, title.c_str());
 	SetTargetFPS(60);
 
-	InitAudioDevice();
+	//InitAudioDevice();
 
 	SetBackgroundTexture();
 }
@@ -17,8 +17,9 @@ Scene::~Scene() {
 	}
 	objects.clear();
 
-	UnloadMusicStream(musicBG);
-	CloseAudioDevice();
+	//StopMusicStream(musicBG);
+	//UnloadMusicStream(musicBG);
+	//CloseAudioDevice();
 	
 	CloseWindow();
 }

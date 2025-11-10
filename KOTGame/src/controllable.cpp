@@ -112,19 +112,22 @@ void Controllable::FixedStep(float timestep) {
 	switch (state) {
 	case Controllable::State::Idle:
 		//std::cout << "##KOT: Object " << tag << " in State: Idle" << std::endl;
-		//if (!animPlay) {
 		colliders.clear();
-		//currentFrame = 0;
-		//animPlay = true;
+		if (!animPlay) {
+			currentFrame = 0;
+			animPlay = true;
+		}
 		Idle(*this, timestep);
-		//}
 		velocity.x = 0.0f;
 		break;
 	case Controllable::State::Move:
 		//play move anim
 		//std::cout << "##KOT: Object " << tag << " in State: Move" << std::endl;
-		//velocity.x < -0.1f ? anim.hFlip = true : false
 		colliders.clear();
+		if (!animPlay) {
+			currentFrame = 0;
+			animPlay = true;
+		}
 		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
 		break;
 	case Controllable::State::Air:
@@ -132,16 +135,21 @@ void Controllable::FixedStep(float timestep) {
 		//std::cout << "##KOT: Object " << tag << " in State: Air" << std::endl;
 		grounded = false;
 		colliders.clear();
+		if (!animPlay) {
+			currentFrame = 0;
+			animPlay = true;
+		}
 		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
 		break;
 	case Controllable::State::Punch: {
 		//std::cout << "##KOT: Object " << tag << " in State: Punch" << std::endl;
-		//if (!animPlay) {
 		colliders.clear();
-		//currentFrame = 0;
-		//animPlay = true;
+		if (!animPlay) {
+			currentFrame = 0;
+			animPlay = true;
+			state = CSTATE::Idle;
+		}
 		LPunch(*this, timestep);
-		//}
 		break;
 	}
 	default:
@@ -185,7 +193,8 @@ colliders_t Controllable::CheckColliders(const std::vector<std::shared_ptr<Objec
 									auto rightLeft = fabsf(GetAABB().max().x - obj->GetAABB().min().x);
 
 									//needs more tweaking in future - shifts character based on fraction of size
-									obj->position.x = (leftRight < rightLeft) ? obj->position.x - (obj->size.x*0.05f): obj->position.x + (obj->size.x * 0.05f);
+
+									obj->position.x = (leftRight < rightLeft) ? obj->GetAABB().min().x + (size.x * 0.45f) : obj->GetAABB().max().x - (size.x * 0.45f);
 								}
 							}
 						}

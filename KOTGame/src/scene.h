@@ -33,7 +33,7 @@ public:
 	void DrawRectangles(const Vector2& world, const Vector2& size, const Color& color) const;
 	void DrawTextures(const Texture2D& texture, const float posX, const float posY, const Color& tint) const;
 
-	void SetBackgroundTexture(std::string filename = "defaultBackground.png") { background = LoadTexture(filename.c_str()); }
+	void SetBackgroundTexture(std::string filename = "sprites/defaultBackground.png") { background = LoadTexture(filename.c_str()); }
 	AABB GetAABB() { return AABB{ Vector2{width * 0.5f, height * 0.5f}, Vector2{width * 0.5f, height * 0.5f} }; }
 public:
 	int width = 0;

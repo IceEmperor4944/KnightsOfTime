@@ -52,8 +52,10 @@ public:
 	float frameTimer = 0.0f;
 	int currentFrame = 0;
 	int frameSpeed = 0;
+	bool spriteFlip = false;
+
 	bool animPlay = false;
-	Sound soundPlay;
+	Sound soundPlay{ 0 };
 
 	bool drawCols = true;
 

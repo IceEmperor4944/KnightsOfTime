@@ -6,21 +6,24 @@
 #include <iostream>
 
 int main() {
+	SetTraceLogLevel(LOG_NONE);
+
 	const int screenWidth = 1920;
 	const int screenHeight = 1080;
 
 	std::unique_ptr<Scene> scene = std::make_unique<GameScene>("Knights of Time", screenWidth, screenHeight, 24);
+	scene->Initialize();
 
 	std::string filename = "sprites/defaultGround.png";
 	scene->CreateObject(SOLID, "Ground", Vector2{ 960.0f, 900.0f }, 0.0f, filename, 10000); //Create Ground Object
 	//CheckTexture(filename); //Check for Valid Texture
 
 	filename = "sprites/default.png";
-	scene->CreateObject(CONTROL, "Player1", { 640.0f, 560.0f }, 1.0f, filename, 100, 1.0f, 12.0f, 500.0f); //Create Player 1
+	scene->CreateObject(CONTROL, "Player1", { 640.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f); //Create Player 1
 	//CheckTexture(filename);
 
 	filename = "sprites/default2.png";
-	scene->CreateObject(CONTROL, "Player2", { 1280.0f, 560.0f }, 1.0f, filename, 100, 1.0f, 12.0f, 750.0f);//Create Player 2
+	scene->CreateObject(CONTROL, "Player2", { 1280.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f);//Create Player 2
 	//CheckTexture(filename);
 
 	//Check for Objects in Scene
@@ -69,8 +72,6 @@ int main() {
 		scene->Update(GetFrameTime());
 		scene->BeginDraw();
 		scene->Draw();
-		/*for (auto obj : scene->objects) std::cout << "Time: " << GetTime() << " Object Pos - X: "
-			<< obj->position.x << " Y: " << obj->position.y << std::endl;*/
 		scene->DrawGUI();
 		scene->EndDraw();
 	}

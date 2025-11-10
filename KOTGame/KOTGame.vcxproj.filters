@@ -80,5 +80,8 @@
     <ClInclude Include="src\states.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

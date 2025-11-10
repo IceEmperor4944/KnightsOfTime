@@ -156,6 +156,7 @@
     <ClInclude Include="src\hurtbox.h" />
     <ClInclude Include="src\includes.h" />
     <ClInclude Include="src\object.h" />
+    <ClInclude Include="src\sprite.h" />
     <ClInclude Include="src\states.h" />
     <ClInclude Include="src\scene.h" />
     <ClInclude Include="src\solid.h" />
