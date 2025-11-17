@@ -148,8 +148,10 @@
     <ClInclude Include="src\aabb.h" />
     <ClInclude Include="src\checks.h" />
     <ClInclude Include="src\collider.h" />
+    <ClInclude Include="src\connect.h" />
     <ClInclude Include="src\controllable.h" />
     <ClInclude Include="src\controls.h" />
+    <ClInclude Include="src\enet.h" />
     <ClInclude Include="src\gamescene.h" />
     <ClInclude Include="src\attack.h" />
     <ClInclude Include="src\hitbox.h" />

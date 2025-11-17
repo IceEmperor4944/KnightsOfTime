@@ -4,12 +4,12 @@
 
 static void LPunch(Controllable& obj, float timestep) {
 	colliders_t stageOneCols;
-	std::shared_ptr<Collider> innerCol = std::make_shared<Hitbox>(Vector2{ 50.0f, 50.0f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -30.0f : 30.0f), obj.position.y + 20.0f }, 10, 0.0f);
-	stageOneCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
+	std::shared_ptr<Collider> innerCol = std::make_shared<Hitbox>(Vector2{ 50.0f, 70.0f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -40.0f : 40.0f), obj.position.y }, 10, 0.0f);
+	stageOneCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x * 0.5f, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
 	stageOneCols.push_back(innerCol);
 	colliders_t stageTwoCols;
-	std::shared_ptr<Collider> outerCol = std::make_shared<Hitbox>(Vector2{ 100.0f, 50.0f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -75.0f : 75.0f), obj.position.y + 20.0f }, 10, 0.0f);
-	stageTwoCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
+	std::shared_ptr<Collider> outerCol = std::make_shared<Hitbox>(Vector2{ 70.0f, 50.0f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -30.0f : 30.0f), obj.position.y }, 10, 0.0f);
+	stageTwoCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x * 0.5f, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
 	stageTwoCols.push_back(outerCol);
 	std::vector<colliders_t> finalCols;
 	for (int i = 0; i < 6; i++) finalCols.push_back(stageOneCols);
@@ -22,11 +22,31 @@ static void LPunch(Controllable& obj, float timestep) {
 	//obj.sprite = anim->texture;
 };
 
+static void HKick(Controllable& obj, float timestep) {
+	colliders_t stageOneCols;
+	std::shared_ptr<Collider> innerCol = std::make_shared<Hitbox>(Vector2{ 50.0f, 80.0f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -100.0f : 100.0f), obj.position.y + 70.0f }, 10, 0.0f);
+	stageOneCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x * 0.5f, obj.size.y * 0.5f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -50.0f : 50.0f), obj.position.y + (obj.size.y * 0.25f) }));
+	stageOneCols.push_back(innerCol);
+	colliders_t stageTwoCols;
+	std::shared_ptr<Collider> outerCol = std::make_shared<Hitbox>(Vector2{ 100.0f, 50.0f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -140.0f : 140.0f), obj.position.y + 40.0f }, 10, 0.0f);
+	stageTwoCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x * 0.5f, obj.size.y * 0.5f }, Vector2{ obj.position.x + ((obj.spriteFlip) ? -50.0f : 50.0f), obj.position.y + (obj.size.y * 0.25f) }));
+	stageTwoCols.push_back(outerCol);
+	std::vector<colliders_t> finalCols;
+	for (int i = 0; i < 6; i++) finalCols.push_back(stageOneCols);
+	for (int i = 0; i < 6; i++) finalCols.push_back(stageTwoCols);
+
+	auto hKick = std::make_shared<Attack>(finalCols);
+
+	auto anim = std::make_shared<Sprite>("sprites/defaultKick.png", 12);
+	anim->PlaySpriteAnim(obj, *hKick.get(), timestep);
+	//obj.sprite = anim->texture;
+};
+
 static void Idle(Controllable& obj, float timestep) {
 	colliders_t idleCols;
 	std::shared_ptr<Collider> hitCol1 = std::make_shared<Hurtbox>(BOXTYPE::Hurt, Vector2{ 50.0f, 70.0f }, Vector2{ obj.position.x, obj.position.y - 70.0f });
 	std::shared_ptr<Collider> hitCol2 = std::make_shared<Hurtbox>(BOXTYPE::Hurt, Vector2{ 100.0f, 160.0f }, Vector2{ obj.position.x, obj.position.y + 40.0f });
-	idleCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
+	idleCols.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ obj.size.x * 0.5f, obj.size.y * 0.5f }, Vector2{ obj.position.x, obj.position.y + (obj.size.y * 0.25f) }));
 	idleCols.push_back(hitCol1);
 	idleCols.push_back(hitCol2);
 	std::vector<colliders_t> finalCols;

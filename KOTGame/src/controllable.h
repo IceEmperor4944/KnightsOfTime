@@ -12,7 +12,8 @@ public:
 		Crouch,
 		Air,
 		Hit,
-		Punch
+		Punch,
+		Kick
 	};
 public:
 	Controllable() : Object() {};

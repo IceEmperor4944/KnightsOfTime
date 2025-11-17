@@ -3,7 +3,7 @@
 
 void Controllable::Step(float dt) {
 	//Input
-	if (state != CSTATE::Punch /*&& !attackCanceled*/) {
+	if (state != CSTATE::Punch && state != CSTATE::Kick /*&& !attackCanceled*/) {
 		if (tag == "Player1") {
 			//walk
 			if (IsKeyDown(KEY_A)) {
@@ -41,6 +41,14 @@ void Controllable::Step(float dt) {
 			//punch
 			if (grounded && IsKeyPressed(KEY_F)) {
 				state = CSTATE::Punch;
+				currentFrame = 0;
+				soundPlay = LoadSound("audio/heeyah.wav");
+				PlaySound(soundPlay);
+			}
+
+			//kick
+			if (grounded && IsKeyPressed(KEY_V)) {
+				state = CSTATE::Kick;
 				currentFrame = 0;
 				soundPlay = LoadSound("audio/heeyah.wav");
 				PlaySound(soundPlay);
@@ -128,7 +136,7 @@ void Controllable::FixedStep(float timestep) {
 			currentFrame = 0;
 			animPlay = true;
 		}
-		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
+		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x * 0.5f, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
 		break;
 	case Controllable::State::Air:
 		//play jump anim
@@ -139,7 +147,7 @@ void Controllable::FixedStep(float timestep) {
 			currentFrame = 0;
 			animPlay = true;
 		}
-		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
+		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x * 0.5f, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));
 		break;
 	case Controllable::State::Punch: {
 		//std::cout << "##KOT: Object " << tag << " in State: Punch" << std::endl;
@@ -150,6 +158,17 @@ void Controllable::FixedStep(float timestep) {
 			state = CSTATE::Idle;
 		}
 		LPunch(*this, timestep);
+		break;
+	}
+	case Controllable::State::Kick: {
+		//std::cout << "##KOT: Object " << tag << " in State: Punch" << std::endl;
+		colliders.clear();
+		if (!animPlay) {
+			currentFrame = 0;
+			animPlay = true;
+			state = CSTATE::Idle;
+		}
+		HKick(*this, timestep);
 		break;
 	}
 	default:
