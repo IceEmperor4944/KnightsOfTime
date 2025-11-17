@@ -48,9 +48,9 @@ Make sure you have the following installed:
 
 ## 📸 Screenshots
 
-- ![Title Card](./KOTGame/resources/github/titleAndKnightHelmSword.jpg)
-- ![Generic Character Animation](./KOTGame/resources/sprites/defaultPunch.png)
-- ![Stage Idea](./KOTGame/resources/github/castleStage.jpg)
+- ![Title Card](./resources/github/titleAndKnightHelmSword.jpg)
+- ![Generic Character Animation](./resources/sprites/defaultPunch.png)
+- ![Stage Idea](./resources/github/castleStage.jpg)
 
 ---
 
