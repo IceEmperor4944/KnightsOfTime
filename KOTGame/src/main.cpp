@@ -5,7 +5,7 @@
 #include "includes.h"
 #include <iostream>
 
-int main() {
+int main(int argc, char** argv) {
 	SetTraceLogLevel(LOG_NONE);
 
 	const int screenWidth = 1920;
@@ -13,6 +13,18 @@ int main() {
 
 	std::unique_ptr<Scene> scene = std::make_unique<GameScene>("Knights of Time", screenWidth, screenHeight, 24);
 	scene->Initialize();
+
+	RenderTexture2D staticCanvas = LoadRenderTexture(screenWidth, screenHeight);
+	auto groundTex = LoadTexture("sprites/defaultGround.png");
+
+	// --- Draw the static world ONCE ---
+	BeginTextureMode(staticCanvas);
+	ClearBackground(BLACK);
+	DrawTexture(*scene->background, 0, 0, WHITE);
+	//DrawTexture(groundTex, 960, 900, WHITE);
+	//DrawRectangle(100, 100, 50, 50, BLUE); // A static platform
+	//DrawRectangle(200, 150, 50, 50, BLUE); // Another static platform
+	EndTextureMode();
 
 	std::string filename = "sprites/defaultGround.png";
 	scene->CreateObject(SOLID, "Ground", Vector2{ 960.0f, 900.0f }, 0.0f, filename, 10000); //Create Ground Object
@@ -71,8 +83,8 @@ int main() {
 		}
 		scene->Update(GetFrameTime());
 		scene->BeginDraw();
-		scene->Draw();
 		scene->DrawGUI();
+		scene->Draw();
 		scene->EndDraw();
 	}
 

@@ -33,7 +33,7 @@ public:
 	void DrawRectangles(const Vector2& world, const Vector2& size, const Color& color) const;
 	void DrawTextures(const Texture2D& texture, const float posX, const float posY, const Color& tint) const;
 
-	void SetBackgroundTexture(std::string filename = "sprites/defaultBackground.png") { background = LoadTexture(filename.c_str()); }
+	void SetBackgroundTexture(std::string filename = "sprites/defaultBackground.png") { background = std::make_shared<Texture2D>(LoadTexture(filename.c_str())); }
 	AABB GetAABB() { return AABB{ Vector2{width * 0.5f, height * 0.5f}, Vector2{width * 0.5f, height * 0.5f} }; }
 public:
 	int width = 0;
@@ -42,7 +42,10 @@ public:
 	bool showFPS = true;
 	int animFrameSpeed = 0;
 
-	Texture2D background;
+	std::shared_ptr<Texture2D> background;
+	std::unique_ptr<RenderTexture2D> cache;
+	bool shouldRedraw = true;
+
 	Music musicBG;
 
 	objects_t objects;

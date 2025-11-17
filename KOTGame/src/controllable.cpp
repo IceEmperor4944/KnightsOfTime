@@ -159,6 +159,8 @@ void Controllable::FixedStep(float timestep) {
 }
 
 colliders_t Controllable::CheckColliders(const std::vector<std::shared_ptr<Object>>& other) {
+	Object::CheckColliders(other);
+
 	std::vector<std::shared_ptr<Collider>> outCols;
 
 	for (auto& col : colliders) {

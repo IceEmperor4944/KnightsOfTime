@@ -1,7 +1,6 @@
 #pragma once
 
 #include "sprite.h"
-#include <iostream>
 
 static void LPunch(Controllable& obj, float timestep) {
 	colliders_t stageOneCols;
@@ -20,6 +19,7 @@ static void LPunch(Controllable& obj, float timestep) {
 
 	auto anim = std::make_shared<Sprite>("sprites/defaultPunch.png", 12);
 	anim->PlaySpriteAnim(obj, *lPunch.get(), timestep);
+	//obj.sprite = anim->texture;
 };
 
 static void Idle(Controllable& obj, float timestep) {
@@ -35,7 +35,9 @@ static void Idle(Controllable& obj, float timestep) {
 	auto idle = std::make_shared<Attack>(finalCols);
 
 	auto anim = std::make_shared<Sprite>("sprites/defaultIdle.png", 10);
-	std::cout << "##KOT: Animation " << anim->filename << " is " << (IsTextureValid(anim->texture) ? "" : "NOT ") << "Valid" << std::endl;
-	auto curAnim = anim->PlaySpriteAnim(obj, *idle.get(), timestep);
-	std::cout << "##KOT: Current Frame is " << (IsTextureValid(curAnim) ? "" : "NOT ") << "Valid" << std::endl;
+	//std::cout << "##KOT: Animation " << anim->filename << " is " << (IsTextureValid(anim->texture) ? "" : "NOT ") << "Valid" << std::endl;
+	anim->PlaySpriteAnim(obj, *idle.get(), timestep);
+	//std::cout << "##KOT: Current Frame is " << (IsTextureValid(curAnim) ? "" : "NOT ") << "Valid" << std::endl;
+
+	//obj.sprite = anim->texture;
 }

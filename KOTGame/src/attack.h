@@ -1,7 +1,6 @@
 #pragma once
 
-#include "collider.h"
-#include "sprite.h"
+#include "object.h"
 
 struct Attack {
 public:

@@ -2,6 +2,7 @@
 #include "hurtbox.h"
 #include "hitbox.h"
 #include <string>
+#include <iostream>
 
 #define SOLID Object::Type::Solid
 #define CONTROL Object::Type::Controllable
@@ -14,18 +15,17 @@ public:
 	};
 public:
 	Object() {};
-	Object(std::string tag, float mass, int maxHealth, Vector2 pos = { 0,0 }, float restitution = 1.0f) :
+	Object(std::string tag, float mass, int health, Vector2 pos = { 0,0 }, float restitution = 1.0f) :
 		tag{ tag },
 		mass{ mass },
-		maxHealth{ maxHealth },
+		health{ health },
 		position{ pos },
 		restitution{ restitution }
 	{};
 
 	virtual void Initialize(std::string filename) {
-		sprite = LoadTexture(filename.c_str());
-		size = { (float)sprite.width, (float)sprite.height };
-		health = maxHealth;
+		sprite = std::make_shared<Texture2D>(LoadTexture(filename.c_str()));
+		size = Vector2{ (float)sprite->width, (float)sprite->height };
 	}
 
 	virtual void Step(float dt) = 0;
@@ -34,7 +34,11 @@ public:
 	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
 	void AddCollider(std::shared_ptr<Collider> collider) { colliders.push_back(collider); }
-	virtual colliders_t CheckColliders(const std::vector<std::shared_ptr<Object>>& other) = 0;
+	virtual colliders_t CheckColliders(const std::vector<std::shared_ptr<Object>>& other) {
+		prevHealth = health;
+		return colliders;
+	}
+
 public:
 	std::string tag = "";
 
@@ -45,10 +49,10 @@ public:
 	Vector2 velocity{ 0, 0 };
 	float restitution = 1.0f;
 	
-	int maxHealth = 0;
 	int health = 0;
+	int prevHealth = -1;
 
-	Texture2D sprite{};
+	std::shared_ptr<Texture2D> sprite;
 	float frameTimer = 0.0f;
 	int currentFrame = 0;
 	int frameSpeed = 0;
@@ -60,5 +64,5 @@ public:
 	bool drawCols = true;
 
 	//array of colliders for hurt/hitbox
-	std::vector<std::shared_ptr<Collider>> colliders;
+	colliders_t colliders;
 };

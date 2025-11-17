@@ -1,9 +1,6 @@
 #pragma once
 
 #include "object.h"
-#include "raylib.h"
-#include <string>
-#include <iostream>
 
 static void CheckTexture(std::string filename) {
 	Texture2D tex = LoadTexture(filename.c_str());

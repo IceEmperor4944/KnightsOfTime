@@ -1,5 +1,6 @@
 #pragma once
 #include "scene.h"
+#include "sprite.h"
 
 class GameScene : public Scene {
 public:
@@ -15,4 +16,8 @@ public:
 	void Draw() override;
 	void DrawGUI() override;
 public:
+	std::unique_ptr<Sprite> healthBar;
+	std::unique_ptr<Sprite> healthBorder;
+	std::unique_ptr<Sprite> player1Headshot;
+	std::unique_ptr<Sprite> player2Headshot;
 };
