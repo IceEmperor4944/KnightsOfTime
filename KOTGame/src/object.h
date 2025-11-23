@@ -36,7 +36,20 @@ public:
 	void AddCollider(std::shared_ptr<Collider> collider) { colliders.push_back(collider); }
 	virtual colliders_t CheckColliders(const std::vector<std::shared_ptr<Object>>& other) {
 		prevHealth = health;
+		//UpdateColliderPositions();
 		return colliders;
+	}
+
+	void UpdateColliderPositions() {
+		std::cout << "##KOT: Object " << tag << " at Position (" << this->position.x << ", " << this->position.y << ")." << std::endl;
+
+		for (auto& col : colliders) {
+			float xOffset = spriteFlip ? -col->posOffset.x : col->posOffset.x;
+
+			std::cout << "##KOT: Collider Position Offset: (" << col->posOffset.x << ", " << col->posOffset.y << ")." << std::endl;
+			col->position = { this->position.x + xOffset, this->position.y + col->posOffset.y };
+			std::cout << "##KOT: Collider New Position: (" << col->position.x << ", " << col->position.y << ")." << std::endl;
+		}
 	}
 
 public:

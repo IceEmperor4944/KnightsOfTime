@@ -2,23 +2,30 @@
 
 #include "attack.h"
 #include "controllable.h"
-#include "checks.h"
 
 class Sprite {
 public:
+	Sprite() = default;
 	Sprite(std::string filename, int numFrames) : filename{ filename }, numFrames{ numFrames } {
-		texture = LoadTexture(filename.c_str());
-
-		//printf("Loading %s | Width: %i, Height: %i, NumFrames: %i\n", filename.c_str(), texture.width, texture.height, numFrames);
-
-		frameWidth = texture.width / numFrames;
-		frameRec = { 0, 0, (float)frameWidth, (float)texture.height };
+		Initialize();
 	}
 
 	~Sprite() {
 		if (IsTextureValid(texture)) {
 			UnloadTexture(texture);
 		}
+	}
+
+	void Initialize() {
+		texture = LoadTexture(filename.c_str());
+
+		if (numFrames <= 0) {
+			numFrames = 1;
+		}
+
+		//printf("Loading %s | Width: %i, Height: %i, NumFrames: %i\n", filename.c_str(), texture.width, texture.height, numFrames);		
+		frameWidth = texture.width / numFrames;
+		frameRec = { 0, 0, (float)frameWidth, (float)texture.height };
 	}
 
 	Texture2D GetSpriteFrame() const {
@@ -38,7 +45,7 @@ public:
 	void Draw(Vector2 position, bool hFlip, Color tint = WHITE) const {
 		Rectangle rect = frameRec;
 		rect.width = (hFlip ? -frameRec.width : frameRec.width);
-		
+
 		DrawTextureRec(texture, rect, position, tint);
 	}
 
@@ -62,7 +69,7 @@ public:
 		return obj.sprite;
 	}*/
 
-	void PlaySpriteAnim(Controllable& obj, Attack atk, float timestep) {
+	void PlaySpriteAnim(Controllable& obj, Attack& atk, float timestep) {
 		obj.frameTimer += timestep;
 
 		if (obj.frameTimer >= (1.0f / obj.frameSpeed)) {
@@ -82,11 +89,29 @@ public:
 		}
 	}
 
-public:
-	Texture2D texture;
-	Rectangle frameRec;
-	int frameWidth;
-	int numFrames;
+	void Read(const json_t& value, std::string name) {
+		if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsObject()) {
+			std::cerr << "Could not read Json value: " << name << std::endl;
+			return;
+		}
 
-	std::string filename;
+		// get the data
+		READ_DATA(value[name.c_str()], filename);
+		READ_DATA(value[name.c_str()], numFrames);
+
+		if (numFrames <= 0) {
+			std::cerr << "Error: Number of Frames must be at least 1. Defaulting to 1 to prevent crash." << std::endl;
+			numFrames = 1;
+		}
+
+		Initialize();
+	}
+
+public:
+	Texture2D texture{};
+	Rectangle frameRec{};
+	int frameWidth = 0;
+	int numFrames = 0;
+
+	std::string filename{};
 };

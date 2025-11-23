@@ -1,6 +1,4 @@
 #include "hurtbox.h"
-#include "object.h"
-#include <iostream>
 
 void Hurtbox::Initialize() {
 	//
@@ -36,11 +34,23 @@ bool Hurtbox::Intersects(std::shared_ptr<Collider> other) {
 	bool output4 = (colA.max().y >= colB.min().y); //obj A bottom overlaps obj B top
 
 	//Check for collision bounds
-	/*std::cout << "##KOT: Col A over Range (" << colA.min().x << ", " << colA.min().y 
+	/*std::cout << "##KOT: Col A over Range (" << colA.min().x << ", " << colA.min().y
 		<< ") - (" << colA.max().x << ", " << colA.max().y << ")" << std::endl;
-	std::cout << "##KOT: Col B of Object '" << other->tag <<  "' over Range (" 
+	std::cout << "##KOT: Col B of Object '" << other->tag <<  "' over Range ("
 		<< colB.min().x << ", " << colB.min().y << ") - (" << colB.max().x << ", " << colB.max().y << ")" << std::endl;
 	std::cout << "------------------------------------------------------------" << std::endl;*/
 
 	return output1 && output2 && output3 && output4;
+}
+
+void Hurtbox::Read(const json_t& value) {
+	Collider::Read(value);
+
+	std::string btype;
+	READ_DATA(value, btype);
+
+	if (btype == "Body") type = BOXTYPE::Body;
+	else if (btype == "Hurt") type = BOXTYPE::Hurt;
+	else if (btype == "Block") type = BOXTYPE::Block;
+	else if (btype == "Invuln") type = BOXTYPE::Invuln;
 }

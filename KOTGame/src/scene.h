@@ -23,7 +23,7 @@ public:
 
 	//OBJECT
 	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
-		std::string filename, int health, float gravScale, float jumpHeight, float moveSpeed);
+		std::string filename, int health, float gravScale, float jumpHeight, float moveSpeed, std::string character);
 	std::shared_ptr<Object> CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass,
 		std::string filename, int health);
 

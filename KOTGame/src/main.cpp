@@ -27,11 +27,11 @@ int main(int argc, char** argv) {
 	//CheckTexture(filename); //Check for Valid Texture
 
 	filename = "sprites/default.png";
-	scene->CreateObject(CONTROL, "Player1", { 640.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f); //Create Player 1
+	scene->CreateObject(CONTROL, "Player1", { 640.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f, "Default"); //Create Player 1
 	//CheckTexture(filename);
 
 	filename = "sprites/default2.png";
-	scene->CreateObject(CONTROL, "Player2", { 1280.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f);//Create Player 2
+	scene->CreateObject(CONTROL, "Player2", { 1280.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f, "Default");//Create Player 2
 	//CheckTexture(filename);
 
 	//Check for Objects in Scene

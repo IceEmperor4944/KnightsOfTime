@@ -1,0 +1,213 @@
+{
+  "DefaultLPunchAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 40.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 40.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 40.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 40.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 40.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 40.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 70.0, 50.0 ],
+        "posOffset": [ 50.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 70.0, 50.0 ],
+        "posOffset": [ 50.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 70.0, 50.0 ],
+        "posOffset": [ 50.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 70.0, 50.0 ],
+        "posOffset": [ 50.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 70.0, 50.0 ],
+        "posOffset": [ 50.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 70.0, 50.0 ],
+        "posOffset": [ 50.0, 0.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "knockback": 0.0
+      }
+    ]
+  ],
+  
+  "DefaultLPunchSprite": {
+    "filename": "path/to/lpunch/sprite.png",
+    "numFrames": 12
+  }
+}

@@ -36,10 +36,10 @@ void Scene::EndDraw() {
 	EndDrawing();
 }
 
-std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, int health, float gravScale, float jumpHeight, float moveSpeed) {
+std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, const Vector2& position, float mass, std::string filename, int health, float gravScale, float jumpHeight, float moveSpeed, std::string character) {
 	std::shared_ptr<Object> obj;
 
-	if (type == Object::Type::Controllable) obj = std::make_shared<Controllable>(tag, mass, health, gravScale, jumpHeight, moveSpeed, position);
+	if (type == Object::Type::Controllable) obj = std::make_shared<Controllable>(tag, mass, health, gravScale, jumpHeight, moveSpeed, character, position);
 
 	obj->Initialize(filename);
 	obj->frameSpeed = animFrameSpeed;

@@ -15,11 +15,21 @@ static void LPunch(Controllable& obj, float timestep) {
 	for (int i = 0; i < 6; i++) finalCols.push_back(stageOneCols);
 	for (int i = 0; i < 6; i++) finalCols.push_back(stageTwoCols);
 
-	auto lPunch = std::make_shared<Attack>(finalCols);
-
+	auto attack = std::make_shared<Attack>(finalCols);
 	auto anim = std::make_shared<Sprite>("sprites/defaultPunch.png", 12);
-	anim->PlaySpriteAnim(obj, *lPunch.get(), timestep);
-	//obj.sprite = anim->texture;
+
+	/*rapidjson::Document document;
+	Json::Load("attacks.json", document);
+	auto attackName = obj.character + "LPunchAttack";
+	auto spriteName = obj.character + "LPunchSprite";
+	
+	auto attack = std::make_shared<Attack>();
+	attack->Read(document, attackName);
+
+	auto anim = std::make_shared<Sprite>();
+	anim->Read(document, spriteName);*/
+
+	anim->PlaySpriteAnim(obj, *attack.get(), timestep);
 };
 
 static void HKick(Controllable& obj, float timestep) {
