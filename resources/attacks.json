@@ -14,7 +14,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -31,7 +32,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -48,7 +50,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -65,7 +68,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -82,7 +86,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -99,7 +104,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -116,7 +122,8 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -133,7 +140,8 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -150,7 +158,8 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -167,7 +176,8 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -184,7 +194,8 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ],
     [
@@ -201,13 +212,822 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10.0,
-        "knockback": 0.0
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
       }
     ]
   ],
-  
+
   "DefaultLPunchSprite": {
-    "filename": "path/to/lpunch/sprite.png",
+    "filename": "sprites/defaultPunch.png",
     "numFrames": 12
+  },
+
+  "DefaultHKickAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 80.0 ],
+        "posOffset": [ 100.0, 70.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.259, 0.965 ],
+        "kbStrength": 10.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 80.0 ],
+        "posOffset": [ 100.0, 70.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.259, 0.965 ],
+        "kbStrength": 10.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 80.0 ],
+        "posOffset": [ 100.0, 70.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.259, 0.965 ],
+        "kbStrength": 10.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 80.0 ],
+        "posOffset": [ 100.0, 70.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.259, 0.965 ],
+        "kbStrength": 10.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 80.0 ],
+        "posOffset": [ 100.0, 70.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.259, 0.965 ],
+        "kbStrength": 10.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 50.0, 80.0 ],
+        "posOffset": [ 100.0, 70.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.259, 0.965 ],
+        "kbStrength": 10.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 100.0, 50.0 ],
+        "posOffset": [ 140.0, 40.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 100.0, 50.0 ],
+        "posOffset": [ 140.0, 40.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 100.0, 50.0 ],
+        "posOffset": [ 140.0, 40.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 100.0, 50.0 ],
+        "posOffset": [ 140.0, 40.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 100.0, 50.0 ],
+        "posOffset": [ 140.0, 40.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 128.0, 128.0 ],
+        "posOffset": [ 50.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      },
+      {
+        "type": "hit",
+        "size": [ 100.0, 50.0 ],
+        "posOffset": [ 140.0, 40.0 ],
+        "restitution": 0.0,
+        "damage": 10.0,
+        "kbDir": [ 0.707, 0.707 ],
+        "kbStrength": 5.0
+      }
+    ]
+  ],
+
+  "DefaultHKickSprite": {
+    "filename": "sprites/defaultKick.png",
+    "numFrames": 12
+  },
+
+  "DefaultIdleAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ]
+  ],
+
+  "DefaultIdleSprite": {
+    "filename": "sprites/knightIdle.png",
+    "numFrames": 8
+  },
+
+  "DefaultWalkAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ]
+  ],
+
+  "DefaultWalkSprite": {
+    "filename": "sprites/defaultWalk.png",
+    "numFrames": 6
+  },
+
+  "DefaultJumpAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ]
+  ],
+
+  "DefaultJumpSprite": {
+    "filename": "sprites/defaultJump.png",
+    "numFrames": 6
+  },
+
+  "DefaultAirAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ],
+    [
+      {
+        "type": "hurt",
+        "size": [ 50.0, 70.0 ],
+        "posOffset": [ 0.0, -70.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 100, 160.0 ],
+        "posOffset": [ 0.0, 40.0 ],
+        "restitution": 0.0,
+        "btype": "Hurt"
+      },
+      {
+        "type": "hurt",
+        "size": [ 64.0, 128.0 ],
+        "posOffset": [ 0.0, 64.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ]
+  ],
+
+  "DefaultAirSprite": {
+    "filename": "sprites/defaultAir.png",
+    "numFrames": 4
   }
 }

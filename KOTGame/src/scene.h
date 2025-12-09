@@ -5,7 +5,7 @@ using objects_t = std::vector<std::shared_ptr<Object>>;
 
 class Scene {
 public:
-	Scene(const std::string& title, int width, int height, int animFrameSpeed);
+	Scene(int animFrameSpeed);
 	virtual ~Scene();
 
 	virtual void Initialize() = 0;
@@ -39,11 +39,11 @@ public:
 	int width = 0;
 	int height = 0;
 
-	bool showFPS = true;
+	bool showFPS = false;
 	int animFrameSpeed = 0;
 
 	std::shared_ptr<Texture2D> background;
-	std::unique_ptr<RenderTexture2D> cache;
+	RenderTexture2D cache;
 	bool shouldRedraw = true;
 
 	Music musicBG;

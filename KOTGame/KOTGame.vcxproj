@@ -168,6 +168,9 @@
     <ClCompile Include="src\hurtbox.cpp" />
     <ClCompile Include="src\json.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\manager.cpp" />
+    <ClCompile Include="src\menuscene.cpp" />
+    <ClCompile Include="src\object.cpp" />
     <ClCompile Include="src\scene.cpp" />
     <ClCompile Include="src\solid.cpp" />
   </ItemGroup>
@@ -182,8 +185,9 @@
     <ClInclude Include="src\attack.h" />
     <ClInclude Include="src\hitbox.h" />
     <ClInclude Include="src\hurtbox.h" />
-    <ClInclude Include="src\includes.h" />
     <ClInclude Include="src\json.h" />
+    <ClInclude Include="src\manager.h" />
+    <ClInclude Include="src\menuscene.h" />
     <ClInclude Include="src\object.h" />
     <ClInclude Include="src\sprite.h" />
     <ClInclude Include="src\states.h" />
@@ -192,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\resources\attacks.json" />
+    <None Include="..\resources\ground.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

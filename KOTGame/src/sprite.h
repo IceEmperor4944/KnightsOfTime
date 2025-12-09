@@ -1,7 +1,6 @@
 #pragma once
 
-#include "attack.h"
-#include "controllable.h"
+#include "raylib.h"
 
 class Sprite {
 public:
@@ -28,16 +27,6 @@ public:
 		frameRec = { 0, 0, (float)frameWidth, (float)texture.height };
 	}
 
-	Texture2D GetSpriteFrame() const {
-		/*int frameSize = (int)((float)texture.width / numFrames);
-		Rectangle frameRec = { 0.0f, 0.0f, (float)frameSize, (float)texture.height }; // Example: 6 frames horizontally
-
-		frameRec.x = (float)((frame)*frameSize);*/
-		auto image = std::make_unique<Image>(LoadImageFromTexture(texture));
-		ImageCrop(image.get(), frameRec);
-		return LoadTextureFromImage(*image);
-	}
-
 	void UpdateFrame(int frame) {
 		frameRec.x = (float)frame * frameWidth;
 	}
@@ -46,47 +35,32 @@ public:
 		Rectangle rect = frameRec;
 		rect.width = (hFlip ? -frameRec.width : frameRec.width);
 
+		//DrawRectangleV(position, { frameRec.width, frameRec.height }, RED);
 		DrawTextureRec(texture, rect, position, tint);
 	}
 
-	/*Texture2D PlaySpriteAnim(Controllable& obj, Attack atk, float timestep) const {
-		obj.frameTimer += timestep;
-		if (obj.frameTimer >= (1.0f / obj.frameSpeed)) {
-			//std::cout << "##KOT: Sprite " << texture.id << " Current Frame: " << obj.currentFrame << std::endl;
+	void AdvanceFrame(int& currentFrame, float& frameTimer, int animSpeed, float timestep) {
+		frameTimer += timestep;
+		//std::cout << "##KOT: CurrentFrame: " << currentFrame << std::endl;
 
-			atk.PlayAttackFrame(obj);
-			obj.sprite = GetSpriteFrame(obj.currentFrame); //Set object texture as current frame
+		if (frameTimer >= (1.0f / animSpeed)) {
 
-			obj.currentFrame++;
-			obj.frameTimer = 0.0f;
-			if (obj.currentFrame >= numFrames) {
-				obj.currentFrame = 0;
-				obj.animPlay = false;
-				obj.state = CSTATE::Idle;
+			//atk.PlayAttackFrame(obj);
+			//UpdateFrame(obj.currentFrame);
+			//obj.sprite = std::make_shared<Texture2D>(GetSpriteFrame());
+
+			currentFrame++;
+			frameTimer = 0.0f;
+
+			if (currentFrame >= numFrames) {
+				currentFrame = numFrames - 1;
+				frameTimer = 0.0f;
+				/*obj.animPlay = false;
+				obj.state = CSTATE::Idle;*/
 			}
 		}
 
-		return obj.sprite;
-	}*/
-
-	void PlaySpriteAnim(Controllable& obj, Attack& atk, float timestep) {
-		obj.frameTimer += timestep;
-
-		if (obj.frameTimer >= (1.0f / obj.frameSpeed)) {
-
-			atk.PlayAttackFrame(obj);
-			UpdateFrame(obj.currentFrame);
-			obj.sprite = std::make_shared<Texture2D>(GetSpriteFrame());
-
-			obj.currentFrame++;
-			obj.frameTimer = 0.f;
-
-			if (obj.currentFrame >= numFrames) {
-				obj.currentFrame = 0;
-				obj.animPlay = false;
-				obj.state = CSTATE::Idle;
-			}
-		}
+		UpdateFrame(currentFrame);
 	}
 
 	void Read(const json_t& value, std::string name) {

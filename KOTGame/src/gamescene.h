@@ -1,10 +1,11 @@
 #pragma once
+
 #include "scene.h"
 #include "sprite.h"
 
 class GameScene : public Scene {
 public:
-	GameScene(const std::string& title, int width, int height, int animFrameSpeed) : Scene(title, width, height, animFrameSpeed) {}
+	GameScene(int animFrameSpeed) : Scene(animFrameSpeed) {}
 	~GameScene() { Scene::~Scene(); }
 
 	void Initialize() override;

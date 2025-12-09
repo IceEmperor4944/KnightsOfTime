@@ -4,10 +4,11 @@
 class Hitbox : public Collider {
 public:
 	Hitbox() = default;
-	Hitbox(Vector2 size, Vector2 posOffset, int damage, float knockback) :
+	Hitbox(Vector2 size, Vector2 posOffset, int damage, Vector2 kbDir, float kbStrength) :
 		Collider{ size, posOffset },
 		damage{ damage },
-		knockback{ knockback }
+		kbDir{ kbDir },
+		kbStrength{ kbStrength }
 	{}
 
 	void Initialize() override;
@@ -17,5 +18,6 @@ public:
 	void Read(const json_t& value) override;
 public:
 	int damage = 0;
-	float knockback = 0.0f;
+	Vector2 kbDir{};
+	float kbStrength = 0.0f;
 };

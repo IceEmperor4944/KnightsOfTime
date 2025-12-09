@@ -1,7 +1,11 @@
 #pragma once
 #include "object.h"
+#include "hurtbox.h"
+#include "hitbox.h"
 
 #define CSTATE Controllable::State
+
+struct Attack;
 
 class Controllable : public Object {
 public:
@@ -10,6 +14,7 @@ public:
 		Move,
 		Run,
 		Crouch,
+		Jump,
 		Air,
 		Hit,
 		Punch,
@@ -23,11 +28,14 @@ public:
 		jumpHeight{ jumpHeight },
 		moveSpeed{ moveSpeed },
 		character{ character }
-	{};
+	{
+	};
 
-	void Initialize(std::string filename) override { Object::Initialize(filename); }
+	void Initialize(std::string filename) override;
 	void Step(float dt) override;
 	void FixedStep(float timestep) override;
+
+	void Read(const std::string& filename) override;
 
 	colliders_t CheckColliders(const std::vector<std::shared_ptr<Object>>& other) override;
 public:
@@ -37,11 +45,12 @@ public:
 	float moveSpeed = 1.0f;
 
 	State state{ CSTATE::Idle };
+	State prevState{ CSTATE::Idle };
 
 	bool isHit = false;
 
-	////////////////////////////////////////////////////////
-	//for future use:
-	std::string character;	//set this in constructor
-	//append string to each filename to get specific sprites
+	/// <summary>
+	/// Sets which character to use. Most applicable when multiple characters.
+	/// </summary>
+	std::string character;
 };

@@ -2,13 +2,11 @@
 #include "solid.h"
 #include "controllable.h"
 
-Scene::Scene(const std::string& title, int width, int height, int animFrameSpeed) : width{ width }, height{ height }, animFrameSpeed{ animFrameSpeed } {
-	InitWindow(width, height, title.c_str());
-	SetTargetFPS(60);
+Scene::Scene(int animFrameSpeed) : animFrameSpeed{ animFrameSpeed } {
+	cache = LoadRenderTexture(width, height);
+	musicBG = LoadMusicStream("audio/moonsetter.mp3");
 
-	InitAudioDevice();
-
-	SetBackgroundTexture();
+	//SetBackgroundTexture();
 }
 
 Scene::~Scene() {
@@ -17,13 +15,12 @@ Scene::~Scene() {
 	}
 	objects.clear();
 
-	//StopMusicStream(*musicBG);
-	UnloadMusicStream(musicBG);
-	CloseAudioDevice();
-	
-	UnloadRenderTexture(*cache);
+	//if (musicBG.stream.buffer) {
+	//	StopMusicStream(musicBG);
+	//	UnloadMusicStream(musicBG);
+	//}
 
-	CloseWindow();
+	UnloadRenderTexture(cache);
 }
 
 void Scene::BeginDraw() {
@@ -52,7 +49,7 @@ std::shared_ptr<Object> Scene::CreateObject(Object::Type type, std::string tag, 
 	std::shared_ptr<Object> obj;
 
 	if (type == Object::Type::Solid) obj = std::make_shared<Solid>(tag, mass, health, position);
-	
+
 	obj->Initialize(filename);
 	obj->frameSpeed = animFrameSpeed;
 	objects.push_back(obj);

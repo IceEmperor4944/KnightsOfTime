@@ -12,7 +12,7 @@ public:
 		Invuln
 	};
 public:
-	Hurtbox() = default;
+	Hurtbox() { type = Type::Body; }
 	Hurtbox(BOXTYPE type, Vector2 size, Vector2 posOffset = { 0, 0 }, float restitution = 0.0f) :
 		Collider{ size, posOffset, restitution },
 		type{ type }

@@ -1,6 +1,8 @@
 #pragma once
 
 #include "object.h"
+#include "hurtbox.h"
+#include "hitbox.h"
 
 struct Attack {
 public:
@@ -24,7 +26,8 @@ public:
 	void PlayAttackFrame(Object& obj) {
 		obj.colliders.clear();
 		for (const auto& col : colliders[obj.currentFrame]) obj.colliders.push_back(col);
-		obj.UpdateColliderPositions();
+
+		//obj.UpdateColliderPositions();
 	}
 
 	/// <summary>

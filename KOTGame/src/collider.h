@@ -10,7 +10,7 @@ public:
 	Collider(Vector2 size, Vector2 posOffset = { 0, 0 }, float restitution = 0.0f) : size{ size }, posOffset{ posOffset }, restitution{ restitution } {}
 
 	virtual void Initialize() = 0;
-	AABB GetAABB() const { return AABB{ posOffset, { size.x, size.y } }; }
+	AABB GetAABB() const { return AABB{ position, { size.x, size.y } }; }
 
 	virtual bool Intersects(std::shared_ptr<Collider> other) = 0;
 
@@ -19,7 +19,7 @@ public:
 		READ_DATA(value, posOffset);
 		READ_DATA(value, restitution);
 
-		std::cout << "##KOT: Collider Position Offset - (" << posOffset.x << ", " << posOffset.y << ")" << std::endl;
+		//std::cout << "##KOT: Collider Position Offset - (" << posOffset.x << ", " << posOffset.y << ")" << std::endl;
 
 		Initialize();
 	}

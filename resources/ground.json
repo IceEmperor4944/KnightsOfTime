@@ -1,0 +1,18 @@
+{
+  "GroundIdleAttack": [
+    [
+      {
+        "type": "hurt",
+        "size": [ 1920.0, 270.0 ],
+        "posOffset": [ 0.0, 0.0 ],
+        "restitution": 0.0,
+        "btype": "Body"
+      }
+    ]
+  ],
+
+  "GroundIdleSprite": {
+    "filename": "sprites/defaultGround.png",
+    "numFrames": 1
+  }
+}
