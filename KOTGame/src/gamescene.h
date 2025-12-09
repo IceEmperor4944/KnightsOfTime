@@ -21,4 +21,6 @@ public:
 	std::unique_ptr<Sprite> healthBorder;
 	std::unique_ptr<Sprite> player1Headshot;
 	std::unique_ptr<Sprite> player2Headshot;
+
+	bool gameOver = false;
 };

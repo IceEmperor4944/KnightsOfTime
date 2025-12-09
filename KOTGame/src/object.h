@@ -72,7 +72,7 @@ public:
 	Vector2 velocity{ 0, 0 };
 	float restitution = 1.0f;
 
-	int health = 0;
+	int health = 1;
 	int prevHealth = -1;
 
 	std::map<std::string, std::shared_ptr<Sprite>> anims;

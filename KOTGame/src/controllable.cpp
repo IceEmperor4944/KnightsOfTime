@@ -16,7 +16,7 @@ void Controllable::Step(float dt) {
 	//grounded = false;
 
 	//Input
-	if (state != CSTATE::Punch && state != CSTATE::Kick /*&& !attackCanceled*/) {
+	if (state != CSTATE::Hit && state != CSTATE::Punch && state != CSTATE::Kick /*&& !attackCanceled*/) {
 		if (tag == "Player1") {
 			//punch
 			if (grounded && IsKeyPressed(KEY_F)) {
@@ -90,25 +90,56 @@ void Controllable::Step(float dt) {
 			if (grounded && velocity.x == 0.0f) state = CSTATE::Idle;*/
 		}
 		else if (tag == "Player2") {
+			//punch
+			if (grounded && IsKeyPressed(KEY_H)) {
+				if (state != CSTATE::Punch) {
+					currentFrame = 0;
+					state = CSTATE::Punch;
+					soundPlay = LoadSound("audio/heeyah.wav");
+					PlaySound(soundPlay);
+				}
+			}
+
+			//kick
+			else if (grounded && IsKeyPressed(KEY_N)) {
+				if (state != CSTATE::Kick) {
+					currentFrame = 0;
+					state = CSTATE::Kick;
+					soundPlay = LoadSound("audio/heeyah.wav");
+					PlaySound(soundPlay);
+				}
+			}
 			//walk
-			if (IsKeyDown(KEY_J)) {
+			else if (IsKeyDown(KEY_J)) {
+				//animPlay = false;
+				if (state != CSTATE::Move) {
+					currentFrame = 0;
+					state = CSTATE::Move;
+				}
 				velocity.x = 0.0f;
 				velocity.x += -moveSpeed * dt;
-				//animPlay = false;
-				currentFrame = 0;
-				state = CSTATE::Move;
 			}
 			else if (IsKeyDown(KEY_L)) {
+				//animPlay = false;
+				if (state != CSTATE::Move) {
+					currentFrame = 0;
+					state = CSTATE::Move;
+				}
 				velocity.x = 0.0f;
 				velocity.x += moveSpeed * dt;
-				//animPlay = false;
-				currentFrame = 0;
-				state = CSTATE::Move;
+			}
+			else if (grounded) {
+				velocity.x = 0.0f;
+				if (state != CSTATE::Idle) {
+					currentFrame = 0;
+					state = CSTATE::Idle;
+				}
 			}
 			else {
-				velocity.x = 0.0f;
-				currentFrame = 0;
-				state = CSTATE::Idle;
+				if (state != CSTATE::Air) {
+					currentFrame = 0;
+					state = CSTATE::Air;
+				}
 			}
 
 			//jump
@@ -116,18 +147,14 @@ void Controllable::Step(float dt) {
 				//std::cout << "##KOT: Jump Pressed" << std::endl;
 				/*velocity.y = 0.0f;
 				position.y -= 100;*/
+				//animPlay = false;
+				if (state != CSTATE::Jump) {
+					currentFrame = 0;
+					state = CSTATE::Jump;
+				}
+
 				position.y += -2 * jumpHeight;
 				velocity.y += -jumpHeight;
-				//animPlay = false;
-				currentFrame = 0;
-				state = CSTATE::Air;
-			}
-
-			//punch
-			if (IsKeyPressed(KEY_H)) {
-				state = CSTATE::Punch;
-				currentFrame = 0;
-				PlaySound(LoadSound("audio/heeyah.mp3"));
 			}
 		}
 	}
@@ -143,28 +170,12 @@ void Controllable::Step(float dt) {
 }
 
 void Controllable::FixedStep(float timestep) {
-	/*std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "##KOT: Object " << tag << " at Position (" << position.x << ", " << position.y << ")" << std::endl;*/
 	switch (state) {
 	case Controllable::State::Idle:
-		//std::cout << "##KOT: Object " << tag << " in State: Idle" << std::endl;
-		/*colliders.clear();
-		if (!animPlay) {
-			currentFrame = 0;
-			animPlay = true;
-		}*/
 		PlayState(*this, timestep, "Idle");
 		velocity.x = 0.0f;
 		break;
 	case Controllable::State::Move:
-		//play move anim
-		//std::cout << "##KOT: Object " << tag << " in State: Move" << std::endl;
-		/*colliders.clear();
-		if (!animPlay) {
-			currentFrame = 0;
-			animPlay = true;
-		}
-		colliders.push_back(std::make_shared<Hurtbox>(BOXTYPE::Body, Vector2{ size.x * 0.5f, size.y * 0.5f }, Vector2{ position.x, position.y + (size.y * 0.25f) }));*/
 		PlayState(*this, timestep, "Walk");
 		break;
 	case Controllable::State::Air:
@@ -175,6 +186,9 @@ void Controllable::FixedStep(float timestep) {
 		break;
 	case Controllable::State::Jump:
 		PlayState(*this, timestep, "Jump");
+		break;
+	case Controllable::State::Hit:
+		PlayState(*this, timestep, "Hit");
 		break;
 	case Controllable::State::Punch: {
 		//std::cout << "##KOT: Object " << tag << " in State: Punch" << std::endl;
@@ -195,9 +209,6 @@ void Controllable::FixedStep(float timestep) {
 	default:
 		break;
 	}
-	//std::cout << "----------------------------------------------" << std::endl;
-
-	//UpdateColliderPositions();
 }
 
 void Controllable::Read(const std::string& filename) {
@@ -283,7 +294,8 @@ colliders_t Controllable::CheckColliders(const std::vector<std::shared_ptr<Objec
 								auto oHitCol = std::dynamic_pointer_cast<Hitbox>(oCol);
 								if (oHitCol && !isHit) {
 									health -= oHitCol->damage;
-									velocity += oHitCol->kbDir * oHitCol->kbStrength;
+									velocity += Vector2{ ((spriteFlip) ? -oHitCol->kbDir.x : oHitCol->kbDir.x) , oHitCol->kbDir.y } * oHitCol->kbStrength;
+									state = CSTATE::Hit;
 								}
 							}
 						}

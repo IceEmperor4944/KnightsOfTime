@@ -29,6 +29,7 @@ void MenuScene::EndDraw() {
 }
 
 void MenuScene::Draw() {
+	ClearBackground(BLACK);
 	DrawTexture(*button, (int)((width * 0.5f) - (button->width * 0.5f)), (int)((height * 0.5f) - (button->height * 0.5f)), WHITE);
 }
 

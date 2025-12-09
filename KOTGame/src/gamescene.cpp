@@ -19,7 +19,8 @@ void GameScene::Initialize() {
 
 void GameScene::Update(float timestep) {
 	for (auto& obj : objects) {
-		obj->CheckColliders(objects);
+		auto p = std::dynamic_pointer_cast<Controllable>(obj);
+		if(!p || p->state != CSTATE::Hit) obj->CheckColliders(objects);
 		obj->Step(timestep);
 		//std::cout << "##KOT: Object " << obj->tag << " at Position (" << obj->position.x << ", " << obj->position.y << ")" << std::endl;
 
@@ -54,6 +55,8 @@ void GameScene::Update(float timestep) {
 
 			shouldRedraw = shouldRedraw || obj->health != obj->prevHealth; //tells gui to update health bars if either player has changed
 		}
+
+		if (obj->tag.starts_with("Player") && obj->health <= 0) gameOver = true;
 	}
 
 	//UpdateMusicStream(musicBG);

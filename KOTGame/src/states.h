@@ -39,7 +39,7 @@ static void PlayState(Controllable& obj, float timestep, const std::string& stat
 	}
 
 	// ... Exit logic for Punch/Kick/Jump ...
-	if (stateName == "LPunch" || stateName == "HKick" || stateName == "Jump") {
+	if (stateName == "Hit" || stateName == "LPunch" || stateName == "HKick" || stateName == "Jump") {
 		if (obj.currentFrame == (obj.anims.at(obj.curAnim)->numFrames - 1) && obj.frameTimer == 0.0f) {
 			obj.curAttack = nullptr;
 			obj.state = CSTATE::Idle;

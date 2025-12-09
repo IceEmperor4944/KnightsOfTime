@@ -9,7 +9,7 @@ void GameManager::Initialize() {
 
 void GameManager::Update(float timestep) {
 	auto menu = std::dynamic_pointer_cast<MenuScene>(scene);
-	//auto game = std::dynamic_pointer_cast<GameScene>(scene);
+	auto game = std::dynamic_pointer_cast<GameScene>(scene);
 
 	scene->Update(timestep);
 	if (menu) {
@@ -23,8 +23,15 @@ void GameManager::Update(float timestep) {
 			StartGame();
 		}
 	}
-	else {
-		//std::cout << "##KOT: Scene: GAME" << std::endl;
+	else if (game) {
+		scene->showFPS = true;
+
+		if (game->gameOver) {
+			game->gameOver = false;
+
+			ClearBackground(BLACK);
+			EndGame();
+		}
 	}
 
 	scene->BeginDraw();
@@ -52,6 +59,7 @@ void GameManager::StartGame() {
 	//CheckTexture(filename);
 
 	scene->CreateObject(CONTROL, "Player2", Vector2{ 1280.0f, 560.0f }, 1.0f, filename, 300, 1.0f, 12.0f, 500.0f, "Default");//Create Player 2
+	/*
 	//CheckTexture(filename);
 
 	//Check for Objects in Scene
@@ -83,4 +91,12 @@ void GameManager::StartGame() {
 	//	}
 	//	obj->colliders.push_back(col);
 	//}
+	*/
+}
+
+void GameManager::EndGame() {
+	scene = std::make_shared<MenuScene>(scene->animFrameSpeed);
+	scene->width = (int)screenSize.x;
+	scene->height = (int)screenSize.y;
+	scene->Initialize();
 }

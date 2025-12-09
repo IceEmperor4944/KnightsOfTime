@@ -23,6 +23,7 @@ public:
 	void FixedUpdate();
 
 	void StartGame();
+	void EndGame();
 
 public:
 	std::shared_ptr<Scene> scene{ nullptr };
