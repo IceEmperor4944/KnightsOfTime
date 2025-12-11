@@ -1,17 +1,17 @@
 #include "menuscene.h"
 
 void MenuScene::Initialize() {
-	//musicBG = LoadMusicStream("audio/moonsetter.mp3");
-	//musicBG.looping = true;
-	//SetMusicVolume(musicBG, 0.5f);
-	//PlayMusicStream(musicBG);
+	if (!musicBG.stream.buffer) musicBG = LoadMusicStream("audio/kotTheme.mp3");
+	musicBG.looping = true;
+	SetMusicVolume(musicBG, 0.5f);
+	PlayMusicStream(musicBG);
 
 	button = std::make_unique<Texture2D>(LoadTexture("sprites/playButton.png"));
 	SetBackgroundTexture("github/titleAndKnightSwordHelm.jpg");
 }
 
 void MenuScene::Update(float timestep) {
-	//UpdateMusicStream(musicBG);
+	UpdateMusicStream(musicBG);
 }
 
 void MenuScene::FixedUpdate() {

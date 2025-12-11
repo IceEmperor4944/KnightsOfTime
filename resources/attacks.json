@@ -14,8 +14,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
+        "kbDir": [ 0.707, -0.707 ],
+        "kbStrength": 2.0
       }
     ],
     [
@@ -32,80 +32,8 @@
         "posOffset": [ 40.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 50.0, 70.0 ],
-        "posOffset": [ 40.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 50.0, 70.0 ],
-        "posOffset": [ 40.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 50.0, 70.0 ],
-        "posOffset": [ 40.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 50.0, 70.0 ],
-        "posOffset": [ 40.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
+        "kbDir": [ 0.707, -0.707 ],
+        "kbStrength": 2.0
       }
     ],
     [
@@ -122,8 +50,8 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
+        "kbDir": [ 0.707, -0.707 ],
+        "kbStrength": 2.0
       }
     ],
     [
@@ -140,87 +68,15 @@
         "posOffset": [ 50.0, 0.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 70.0, 50.0 ],
-        "posOffset": [ 50.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 70.0, 50.0 ],
-        "posOffset": [ 50.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 70.0, 50.0 ],
-        "posOffset": [ 50.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
-      }
-    ],
-    [
-      {
-        "type": "hurt",
-        "size": [ 64.0, 128.0 ],
-        "posOffset": [ 0.0, 64.0 ],
-        "restitution": 0.0,
-        "btype": "Body"
-      },
-      {
-        "type": "hit",
-        "size": [ 70.0, 50.0 ],
-        "posOffset": [ 50.0, 0.0 ],
-        "restitution": 0.0,
-        "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
-        "kbStrength": 5.0
+        "kbDir": [ 0.707, -0.707 ],
+        "kbStrength": 2.0
       }
     ]
   ],
 
   "DefaultLPunchSprite": {
     "filename": "sprites/defaultPunch.png",
-    "numFrames": 12
+    "numFrames": 4
   },
 
   "DefaultHKickAttack": [
@@ -238,7 +94,7 @@
         "posOffset": [ 100.0, 70.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.259, 0.965 ],
+        "kbDir": [ 0.259, -0.965 ],
         "kbStrength": 10.0
       }
     ],
@@ -256,7 +112,7 @@
         "posOffset": [ 100.0, 70.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.259, 0.965 ],
+        "kbDir": [ 0.259, -0.965 ],
         "kbStrength": 10.0
       }
     ],
@@ -274,7 +130,7 @@
         "posOffset": [ 100.0, 70.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.259, 0.965 ],
+        "kbDir": [ 0.259, -0.965 ],
         "kbStrength": 10.0
       }
     ],
@@ -292,7 +148,7 @@
         "posOffset": [ 100.0, 70.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.259, 0.965 ],
+        "kbDir": [ 0.259, -0.965 ],
         "kbStrength": 10.0
       }
     ],
@@ -310,7 +166,7 @@
         "posOffset": [ 100.0, 70.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.259, 0.965 ],
+        "kbDir": [ 0.259, -0.965 ],
         "kbStrength": 10.0
       }
     ],
@@ -328,7 +184,7 @@
         "posOffset": [ 100.0, 70.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.259, 0.965 ],
+        "kbDir": [ 0.259, -0.965 ],
         "kbStrength": 10.0
       }
     ],
@@ -346,7 +202,7 @@
         "posOffset": [ 140.0, 40.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
+        "kbDir": [ 0.707, -0.707 ],
         "kbStrength": 5.0
       }
     ],
@@ -364,7 +220,7 @@
         "posOffset": [ 140.0, 40.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
+        "kbDir": [ 0.707, -0.707 ],
         "kbStrength": 5.0
       }
     ],
@@ -382,7 +238,7 @@
         "posOffset": [ 140.0, 40.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
+        "kbDir": [ 0.707, -0.707 ],
         "kbStrength": 5.0
       }
     ],
@@ -400,7 +256,7 @@
         "posOffset": [ 140.0, 40.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
+        "kbDir": [ 0.707, -0.707 ],
         "kbStrength": 5.0
       }
     ],
@@ -418,7 +274,7 @@
         "posOffset": [ 140.0, 40.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
+        "kbDir": [ 0.707, -0.707 ],
         "kbStrength": 5.0
       }
     ],
@@ -436,7 +292,7 @@
         "posOffset": [ 140.0, 40.0 ],
         "restitution": 0.0,
         "damage": 10,
-        "kbDir": [ 0.707, 0.707 ],
+        "kbDir": [ 0.707, -0.707 ],
         "kbStrength": 5.0
       }
     ]

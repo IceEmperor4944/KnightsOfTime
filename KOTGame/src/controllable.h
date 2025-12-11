@@ -47,7 +47,7 @@ public:
 	State state{ CSTATE::Idle };
 	State prevState{ CSTATE::Idle };
 
-	bool isHit = false;
+	Sound pSound;
 
 	/// <summary>
 	/// Sets which character to use. Most applicable when multiple characters.

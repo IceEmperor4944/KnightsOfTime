@@ -8,10 +8,10 @@ void GameScene::Initialize() {
 	player1Headshot = std::make_unique<Sprite>("sprites/defaultHeadshot.png", 1);
 	player2Headshot = std::make_unique<Sprite>("sprites/default2Headshot.png", 1);
 
-	//musicBG = LoadMusicStream("audio/moonsetter.mp3");
-	//musicBG.looping = true;
-	//SetMusicVolume(musicBG, 0.5f);
-	//PlayMusicStream(musicBG);
+	if (!musicBG.stream.buffer) musicBG = LoadMusicStream("audio/kotTheme.mp3");
+	musicBG.looping = true;
+	SetMusicVolume(musicBG, 0.5f);
+	PlayMusicStream(musicBG);
 
 	//should call set background depending on stage select
 	SetBackgroundTexture();
@@ -59,7 +59,7 @@ void GameScene::Update(float timestep) {
 		if (obj->tag.starts_with("Player") && obj->health <= 0) gameOver = true;
 	}
 
-	//UpdateMusicStream(musicBG);
+	UpdateMusicStream(musicBG);
 }
 
 void GameScene::FixedUpdate() {

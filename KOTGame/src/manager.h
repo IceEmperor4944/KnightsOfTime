@@ -10,11 +10,11 @@ public:
 		InitWindow((int)screenSize.x, (int)screenSize.y, title.c_str());
 		SetTargetFPS(60);
 		scene = std::make_shared<MenuScene>(animFrameSpeed);
-		//InitAudioDevice();
+		InitAudioDevice();
 	};
 
 	~GameManager() {
-		//CloseAudioDevice();
+		CloseAudioDevice();
 		CloseWindow();
 	}
 

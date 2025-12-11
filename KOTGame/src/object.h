@@ -85,7 +85,6 @@ public:
 	bool spriteFlip = false;
 
 	bool animPlay = false;
-	Sound soundPlay{ 0 };
 
 	bool drawCols = true;
 

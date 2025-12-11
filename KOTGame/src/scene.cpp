@@ -4,8 +4,9 @@
 
 Scene::Scene(int animFrameSpeed) : animFrameSpeed{ animFrameSpeed } {
 	cache = LoadRenderTexture(width, height);
-	musicBG = LoadMusicStream("audio/moonsetter.mp3");
-
+	musicBG = LoadMusicStream("audio/kotTheme.mp3");
+	musicBG.looping = true;
+	SetMusicVolume(musicBG, 0.5f);
 	//SetBackgroundTexture();
 }
 
@@ -15,10 +16,12 @@ Scene::~Scene() {
 	}
 	objects.clear();
 
-	//if (musicBG.stream.buffer) {
-	//	StopMusicStream(musicBG);
-	//	UnloadMusicStream(musicBG);
-	//}
+	if (musicBG.stream.buffer) {
+		StopMusicStream(musicBG);
+		UnloadMusicStream(musicBG);
+
+		musicBG = { 0 };
+	}
 
 	UnloadRenderTexture(cache);
 }

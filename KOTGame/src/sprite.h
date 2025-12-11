@@ -53,7 +53,7 @@ public:
 			frameTimer = 0.0f;
 
 			if (currentFrame >= numFrames) {
-				currentFrame = numFrames - 1;
+				currentFrame = /*numFrames - 1*/0;
 				frameTimer = 0.0f;
 				/*obj.animPlay = false;
 				obj.state = CSTATE::Idle;*/

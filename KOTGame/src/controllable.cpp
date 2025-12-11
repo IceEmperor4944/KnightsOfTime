@@ -13,8 +13,6 @@ void Controllable::Initialize(std::string filename) {
 }
 
 void Controllable::Step(float dt) {
-	//grounded = false;
-
 	//Input
 	if (state != CSTATE::Hit && state != CSTATE::Punch && state != CSTATE::Kick /*&& !attackCanceled*/) {
 		if (tag == "Player1") {
@@ -23,8 +21,10 @@ void Controllable::Step(float dt) {
 				if (state != CSTATE::Punch) {
 					currentFrame = 0;
 					state = CSTATE::Punch;
-					soundPlay = LoadSound("audio/heeyah.wav");
-					PlaySound(soundPlay);
+					//if (IsSoundPlaying(pSound)) UnloadSound(pSound);
+					pSound = LoadSound("audio/hoo.wav");
+					SetSoundVolume(pSound, 0.3f);
+					PlaySound(pSound);
 				}
 			}
 
@@ -33,12 +33,17 @@ void Controllable::Step(float dt) {
 				if (state != CSTATE::Kick) {
 					currentFrame = 0;
 					state = CSTATE::Kick;
-					soundPlay = LoadSound("audio/heeyah.wav");
-					PlaySound(soundPlay);
+					//if (IsSoundPlaying(pSound)) UnloadSound(pSound);
+					pSound = LoadSound("audio/heeyah.wav");
+					PlaySound(pSound);
 				}
 			}
 			//walk
 			else if (IsKeyDown(KEY_A)) {
+				/*if (grounded && !IsSoundPlaying(pSound)) {
+					pSound = LoadSound("audio/tututu.wav");
+					PlaySound(pSound);
+				}*/
 				//animPlay = false;
 				if (state != CSTATE::Move) {
 					currentFrame = 0;
@@ -48,6 +53,11 @@ void Controllable::Step(float dt) {
 				velocity.x += -moveSpeed * dt;
 			}
 			else if (IsKeyDown(KEY_D)) {
+				/*if (grounded) {
+					if (IsSoundPlaying(pSound)) UnloadSound(pSound);
+					pSound = LoadSound("audio/tututu.wav");
+					PlaySound(pSound);
+				}*/
 				//animPlay = false;
 				if (state != CSTATE::Move) {
 					currentFrame = 0;
@@ -95,8 +105,10 @@ void Controllable::Step(float dt) {
 				if (state != CSTATE::Punch) {
 					currentFrame = 0;
 					state = CSTATE::Punch;
-					soundPlay = LoadSound("audio/heeyah.wav");
-					PlaySound(soundPlay);
+					//if (IsSoundPlaying(pSound)) UnloadSound(pSound);
+					pSound = LoadSound("audio/hoo.wav");
+					SetSoundVolume(pSound, 0.3f);
+					PlaySound(pSound);
 				}
 			}
 
@@ -105,12 +117,17 @@ void Controllable::Step(float dt) {
 				if (state != CSTATE::Kick) {
 					currentFrame = 0;
 					state = CSTATE::Kick;
-					soundPlay = LoadSound("audio/heeyah.wav");
-					PlaySound(soundPlay);
+					//if (IsSoundPlaying(pSound)) UnloadSound(pSound);
+					pSound = LoadSound("audio/heeyah.wav");
+					PlaySound(pSound);
 				}
 			}
 			//walk
 			else if (IsKeyDown(KEY_J)) {
+				/*if (grounded && !IsSoundPlaying(pSound)) {
+					pSound = LoadSound("audio/tututu.wav");
+					PlaySound(pSound);
+				}*/
 				//animPlay = false;
 				if (state != CSTATE::Move) {
 					currentFrame = 0;
@@ -120,6 +137,10 @@ void Controllable::Step(float dt) {
 				velocity.x += -moveSpeed * dt;
 			}
 			else if (IsKeyDown(KEY_L)) {
+				/*if (grounded && !IsSoundPlaying(pSound)) {
+					pSound = LoadSound("audio/tututu.wav");
+					PlaySound(pSound);
+				}*/
 				//animPlay = false;
 				if (state != CSTATE::Move) {
 					currentFrame = 0;
@@ -292,9 +313,14 @@ colliders_t Controllable::CheckColliders(const std::vector<std::shared_ptr<Objec
 						else if (hurtCol->type == BOXTYPE::Hurt) {
 							for (auto& oCol : obj->colliders) {
 								auto oHitCol = std::dynamic_pointer_cast<Hitbox>(oCol);
-								if (oHitCol && !isHit) {
+								if (oHitCol && state != CSTATE::Hit) {
+									auto r = GetRandomValue(0, 1);
+									//if (IsSoundPlaying(pSound)) UnloadSound(pSound);
+									pSound = LoadSound((r ? "audio/ooh.wav" : "audio/ahh.wav"));
+									SetSoundVolume(pSound, 0.6f);
+									PlaySound(pSound);
 									health -= oHitCol->damage;
-									velocity += Vector2{ ((spriteFlip) ? -oHitCol->kbDir.x : oHitCol->kbDir.x) , oHitCol->kbDir.y } * oHitCol->kbStrength;
+									velocity += Vector2{ ((spriteFlip) ? oHitCol->kbDir.x : -oHitCol->kbDir.x) , oHitCol->kbDir.y } * oHitCol->kbStrength;
 									state = CSTATE::Hit;
 								}
 							}
