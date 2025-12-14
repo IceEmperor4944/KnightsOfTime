@@ -86,7 +86,7 @@ public:
 
 	bool animPlay = false;
 
-	bool drawCols = true;
+	bool drawCols = false;
 
 	colliders_t colliders;
 };

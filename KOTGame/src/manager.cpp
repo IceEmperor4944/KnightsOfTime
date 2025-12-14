@@ -24,7 +24,14 @@ void GameManager::Update(float timestep) {
 		}
 	}
 	else if (game) {
-		scene->showFPS = true;
+		if (IsKeyDown(KEY_TAB)) {
+			scene->showFPS = true;
+			ShowObjectColliders(true);
+		}
+		else {
+			scene->showFPS = false;
+			ShowObjectColliders(false);
+		}
 
 		if (game->gameOver) {
 			game->gameOver = false;

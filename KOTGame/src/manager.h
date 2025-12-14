@@ -25,8 +25,11 @@ public:
 	void StartGame();
 	void EndGame();
 
+	void ShowObjectColliders(bool shouldShow) { for (auto& obj : scene->objects) { obj->drawCols = shouldShow; } }
 public:
 	std::shared_ptr<Scene> scene{ nullptr };
 
 	Vector2 screenSize;
+
+	bool showCols = false;
 };
